@@ -1,0 +1,57 @@
+{
+  "date": "2026-10-28",
+  "parent_protocol_sha256": "2dcee4eb327c4e4f296b9e3f3bbbcc72e67982c08199a11d7237aaa44718e23f",
+  "model": {
+    "id": "state-spaces/mamba-2.8b-hf",
+    "revision": "96c48e0292b63f5346b6d30061af2551f7101e26",
+    "dtype": "float32"
+  },
+  "plan": {
+    "warmups": 3,
+    "timed_repetitions": 20,
+    "batch_size": 1,
+    "prefix_tokens": [
+      128,
+      512,
+      2048
+    ],
+    "new_tokens": 8,
+    "modes": [
+      "original",
+      "forced_accept",
+      "forced_reject",
+      "identical_decision_filtering"
+    ],
+    "synchronize_cuda": true,
+    "paired_order_seed": 20261022,
+    "report": [
+      "median",
+      "p95",
+      "paired_uncertainty",
+      "peak_memory"
+    ],
+    "scope": "Only measured workloads; no universal speed claim",
+    "bootstrap_resamples": 10000
+  },
+  "runtime_versions": {
+    "transformers": "5.18.0",
+    "accelerate": "1.15.0",
+    "huggingface-hub": "1.33.0"
+  },
+  "scope": "Forced routing decisions, fixed synthetic text, batch one on one T4. Full path includes prefill, speculative state/copy/selection and generation; excludes model loading, Python garbage collection and allocator cache clearing. No router cost or attack efficacy is measured. No universal latency or memory claim.",
+  "pairing": "Shuffle four modes within each whole repetition with the fixed seed. Three warmups per mode at each length are retained separately. The two paired comparisons are forced_accept/original and forced_reject/identical_decision_filtering.",
+  "uncertainty": "Resample 20 paired repetition ratios with replacement, report median and 2.5/97.5 nearest-rank percentiles over 10000 bootstrap draws per comparison. This does not capture across-device/run variability.",
+  "expected_rows": {
+    "warmups": 36,
+    "timed": 240,
+    "token_equivalence_pairs": 120
+  },
+  "files": {
+    "experiments/18_runtime_validation/run_timing.py": "1060a0ddcfd870229a1e327e34d54f1b7271a26ee2ad139c47b7213e87b60f4c",
+    "experiments/18_runtime_validation/protocol.json": "2dcee4eb327c4e4f296b9e3f3bbbcc72e67982c08199a11d7237aaa44718e23f",
+    "src/runtime/cuda_models.py": "43a3014506949b986b06f69bf8a8055e615e591ce8403c3a1d4fdccae00adf4b",
+    "src/runtime/pinned_models.py": "06ced443a5563a88beaf6ab073529e0448e85711eaf7c62ab8b103149fa9d24b",
+    "archive/sealed_workspace/dual_state_mamba.py": "cb03e5dc6483c9c9fd579c15cdebb44da079ae19a62fdbc051743083cce900d2",
+    "tests/test_remediation_timing.py": "4a36d4d492f372b8d7ab4ffd25c2788f33121c1d8fd093c7d1b7ff69b993b8a5"
+  }
+}

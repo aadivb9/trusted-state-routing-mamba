@@ -1,0 +1,19 @@
+{
+  "status": "prepared_not_evaluated",
+  "counts": {
+    "development": 72,
+    "clean": 300,
+    "injected_baselines": 300,
+    "attacks": 4500
+  },
+  "previously_observed_normalized_text_overlap": 0,
+  "development_final_normalized_text_overlap": 0,
+  "upstream_commit": "fbed5cca347488f88363790ae3ae97c56116da6a",
+  "selection": "New fixed hash-order balanced selections with exact-normalized-text exclusion of historical and within-new selections; not the official first-N selection. No claim of semantic deduplication or unseen attack families.",
+  "files": {
+    "experiments/17_external_validation/prepared/injected_baselines.json": "4a5cea1e451e1a6afaddfe19acf5849fbe0c8621ff14f50f3f338f80551cc751",
+    "experiments/17_external_validation/prepared/attacks.json": "5ed1dc38bded842a766b9c92c6bbc3232a33c811fe0cf6b9d3b8698c3d6f3acc",
+    "experiments/17_external_validation/prepared/development.json": "90cfda19bf1646bd0ac911d7ea2cc07344e3d2edbc5eaf99c174a9b01c875ba0",
+    "experiments/17_external_validation/prepared/clean.json": "e976ac45496a5409900fec511d12e7e27c04c8bd2f8468fad3b15dfcd6da805c"
+  }
+}

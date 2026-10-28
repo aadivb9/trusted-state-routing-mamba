@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-27",
+  "review_kind": "Independent model-based annotation review; not external human validation",
+  "model": "llama3.2:3b",
+  "model_digest": "a80c4f17acd55265feec403c7aef86be0c25983ab279d83f3bcd3abbcb5b8b72",
+  "provider": "Ollama local / Meta Llama; original abstract notes generated/reviewed with Claude",
+  "packet_sha256": "67a275bc6edf2a5b79ce04d7e0b17861ceb8810582b3f101f246b7f5f50d2b35",
+  "inputs": "Only public reviewer packet items; no expected labels, private map, seed, or audit results in requests.",
+  "temperature": 0,
+  "seed": 20261027,
+  "max_output_tokens": 1200,
+  "items_per_request": 1,
+  "primary": "Candidate selection and every note label with source-grounded reasons. Keep all disagreements.",
+  "retry": "At most one identical retry on invalid/incomplete JSON; no prompt modification or model selection based on agreement.",
+  "human_check": "Separate eight-note author spot-check; not replaceable by model output.",
+  "files": {
+    "remediation/completion_20261027/review_annotations.py": "114c475e4160527526f6f6ef49f1e1ca5a512340d7ad77643eace6a72166e60e",
+    "src/validation/blinded_review.py": "15f162e876a8ab39ec29bfbef50c263d1d3a79439f0d6966ba0e9cff988d9b73"
+  }
+}

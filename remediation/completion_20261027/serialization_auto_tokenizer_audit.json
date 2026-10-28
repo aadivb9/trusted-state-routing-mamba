@@ -1,0 +1,35 @@
+{
+  "model_revision": "96c48e0292b63f5346b6d30061af2551f7101e26",
+  "tokenizer_class": "GPTNeoXTokenizer",
+  "versions": {
+    "transformers": "5.18.0",
+    "tokenizers": "0.23.3"
+  },
+  "scope": "Exact AutoTokenizer full-prompt input equality and boundary ownership; no generation or efficacy outcomes",
+  "partitions": {
+    "development": {
+      "records": 72,
+      "v1_failures": 72,
+      "v2_failures": [],
+      "v2_empty_suffix": []
+    },
+    "clean": {
+      "records": 300,
+      "v1_failures": 300,
+      "v2_failures": [],
+      "v2_empty_suffix": []
+    },
+    "injected_baselines": {
+      "records": 300,
+      "v1_failures": 300,
+      "v2_failures": [],
+      "v2_empty_suffix": []
+    },
+    "attacks": {
+      "records": 4500,
+      "v1_failures": 4500,
+      "v2_failures": [],
+      "v2_empty_suffix": []
+    }
+  }
+}

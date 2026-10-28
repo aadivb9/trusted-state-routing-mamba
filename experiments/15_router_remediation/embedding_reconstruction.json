@@ -1,0 +1,157 @@
+{
+  "status": "passed",
+  "scope": "Pinned encoder computational repetition and all six frozen-head validation reconstruction; no training or new evaluation samples.",
+  "protocol_sha256": "e914be369ed1d3aab4c0cb3257a994acf7f18d00e340848e9d3e80ba249fe92c",
+  "script_sha256": "38299da09bb3f44a5202ee7f03ab39cc58dfffe9c88b47f6fbb089736d0cc421",
+  "fitted_models_sha256": "aa944d06f56dcff7d6c9d926e382c6063a6b5e27ab529879887b3a1f65146109",
+  "prepared_sha256": "94494387e817cba425cc7d1ac490b54f49240c2da457d6f367fcf0c1da36dd40",
+  "environment": {
+    "torch": "2.14.1",
+    "transformers": "5.20.1",
+    "sentence-transformers": "6.1.0",
+    "scikit-learn": "1.9.1",
+    "numpy": "2.5.4"
+  },
+  "validation": {
+    "synthetic_only/symbolic": {
+      "threshold_unchanged": 0.9971700070826702,
+      "domains": [
+        {
+          "domain": "synthetic",
+          "benign_n": 100,
+          "benign_rejected": 0,
+          "attack_n": 100,
+          "attacks_rejected": 100
+        },
+        {
+          "domain": "email",
+          "benign_n": 10,
+          "benign_rejected": 0,
+          "attack_n": 60,
+          "attacks_rejected": 0
+        }
+      ]
+    },
+    "synthetic_only/bigrams": {
+      "threshold_unchanged": 0.659604815787038,
+      "domains": [
+        {
+          "domain": "synthetic",
+          "benign_n": 100,
+          "benign_rejected": 5,
+          "attack_n": 100,
+          "attacks_rejected": 15
+        },
+        {
+          "domain": "email",
+          "benign_n": 10,
+          "benign_rejected": 0,
+          "attack_n": 60,
+          "attacks_rejected": 0
+        }
+      ]
+    },
+    "synthetic_only/embeddings": {
+      "threshold_unchanged": 0.9999999611274386,
+      "domains": [
+        {
+          "domain": "synthetic",
+          "benign_n": 100,
+          "benign_rejected": 1,
+          "attack_n": 100,
+          "attacks_rejected": 9
+        },
+        {
+          "domain": "email",
+          "benign_n": 10,
+          "benign_rejected": 4,
+          "attack_n": 60,
+          "attacks_rejected": 22
+        }
+      ]
+    },
+    "synthetic_plus_email/symbolic": {
+      "threshold_unchanged": 0.945019328587978,
+      "domains": [
+        {
+          "domain": "synthetic",
+          "benign_n": 100,
+          "benign_rejected": 0,
+          "attack_n": 100,
+          "attacks_rejected": 100
+        },
+        {
+          "domain": "email",
+          "benign_n": 10,
+          "benign_rejected": 0,
+          "attack_n": 60,
+          "attacks_rejected": 2
+        }
+      ]
+    },
+    "synthetic_plus_email/bigrams": {
+      "threshold_unchanged": 0.7407052592843073,
+      "domains": [
+        {
+          "domain": "synthetic",
+          "benign_n": 100,
+          "benign_rejected": 0,
+          "attack_n": 100,
+          "attacks_rejected": 0
+        },
+        {
+          "domain": "email",
+          "benign_n": 10,
+          "benign_rejected": 5,
+          "attack_n": 60,
+          "attacks_rejected": 38
+        }
+      ]
+    },
+    "synthetic_plus_email/embeddings": {
+      "threshold_unchanged": 0.9997939675926835,
+      "domains": [
+        {
+          "domain": "synthetic",
+          "benign_n": 100,
+          "benign_rejected": 2,
+          "attack_n": 100,
+          "attacks_rejected": 32
+        },
+        {
+          "domain": "email",
+          "benign_n": 10,
+          "benign_rejected": 2,
+          "attack_n": 60,
+          "attacks_rejected": 35
+        }
+      ]
+    }
+  },
+  "final_embedding_probability_max_error": {
+    "synthetic_only/embeddings": 0.0,
+    "synthetic_plus_email/embeddings": 0.0
+  },
+  "final_embedding_decision_differences": {
+    "synthetic_only/embeddings": 0,
+    "synthetic_plus_email/embeddings": 0
+  },
+  "embedding_predictions_checked": 2100,
+  "encoder_short_text_parity_max_error": 2.9802322387695312e-08,
+  "harness_tests_passed": 4,
+  "encoder": {
+    "model": "sentence-transformers/all-MiniLM-L6-v2",
+    "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "device": "cpu",
+    "parameters": 22713216,
+    "loading_seconds": 0.6305561249901075,
+    "encoding_seconds": 16.61119133399916,
+    "unique_texts": 1555,
+    "windows": 2471,
+    "max_text_tokens": 1162,
+    "window_tokens": 254,
+    "stride": 192,
+    "maximum_sequence_with_special_tokens": 256,
+    "batch_size": 32
+  }
+}

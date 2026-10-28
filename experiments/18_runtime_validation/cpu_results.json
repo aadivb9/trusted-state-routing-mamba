@@ -1,0 +1,42 @@
+{
+  "status": "passed",
+  "device": "cpu",
+  "model": "state-spaces/mamba-130m-hf",
+  "revision": "1e76775f628fbf1350fbe4dbb3d971ba64af25a1",
+  "protocol_sha256": "2dcee4eb327c4e4f296b9e3f3bbbcc72e67982c08199a11d7237aaa44718e23f",
+  "script_sha256": "cd3822a8344e22294e9dc8ef050fb7a6c54089325a9210ae2b56d9bfcdf3ecec",
+  "checks": [
+    {
+      "prefix_tokens": 8,
+      "suffix_tokens": 4,
+      "reference_max_error": 4.57763671875e-05,
+      "chunk_token_max_error": 8.392333984375e-05,
+      "independent_storage": true,
+      "trusted_state_unchanged": true
+    },
+    {
+      "prefix_tokens": 16,
+      "suffix_tokens": 4,
+      "reference_max_error": 4.57763671875e-05,
+      "chunk_token_max_error": 0.000194549560546875,
+      "independent_storage": true,
+      "trusted_state_unchanged": true
+    },
+    {
+      "prefix_tokens": 32,
+      "suffix_tokens": 4,
+      "reference_max_error": 6.961822509765625e-05,
+      "chunk_token_max_error": 0.000186920166015625,
+      "independent_storage": true,
+      "trusted_state_unchanged": true
+    }
+  ],
+  "versions": {
+    "torch": "2.14.1",
+    "transformers": "5.20.1"
+  },
+  "cuda_available": false,
+  "backbone_before": "0eab1bef768140ce6467185fff5c1a2f4b4b7d90cb9caa455536ef95a66450eb",
+  "backbone_after": "0eab1bef768140ce6467185fff5c1a2f4b4b7d90cb9caa455536ef95a66450eb",
+  "scope": "Fresh pinned small-model CPU reference/cache smoke; not a T4, large-model, throughput, training, or defense-efficacy result."
+}

@@ -1,0 +1,129 @@
+{
+  "status": "scoped_validation_completed_with_negative_results_and_limits",
+  "date": "2026-10-28",
+  "findings": [
+    {
+      "finding": 1,
+      "status": "Added baseline and corrected contribution",
+      "evidence": [
+        "experiments/15_router_remediation/results.json",
+        "paper/manuscript.md"
+      ],
+      "residual_limitation": "An unfitted rule matches all 200 trained-cascade decisions. A learned contribution remains unestablished."
+    },
+    {
+      "finding": 2,
+      "status": "Known bypass regressions fixed; utility limitation retained",
+      "evidence": [
+        "src/routing/guarded_router.py",
+        "tests/test_remediation.py",
+        "experiments/15_router_remediation/results.json"
+      ],
+      "residual_limitation": "47/100 benign abstentions and universal observed external abstention prevent a useful-general-defense claim."
+    },
+    {
+      "finding": 3,
+      "status": "New source-disjoint screen and different-model review completed",
+      "evidence": [
+        "experiments/17_external_validation/results_v2.json",
+        "remediation/completion_20261027/model_review.json"
+      ],
+      "residual_limitation": "The competence gate failed. Annotation disagreements remain unadjudicated; the data adaptation is not a full official reproduction."
+    },
+    {
+      "finding": 4,
+      "status": "Negative architectural result retained and contribution corrected",
+      "evidence": [
+        "paper/manuscript.md",
+        "archive/sealed_workspace/text_router_benchmark/filtering_equivalence.json"
+      ],
+      "residual_limitation": "No measured predictive advantage unique to two banks; no new general speed claim."
+    },
+    {
+      "finding": 5,
+      "status": "Silent unsupported acceptance replaced by explicit abstention",
+      "evidence": [
+        "experiments/15_router_remediation/results.json"
+      ],
+      "residual_limitation": "Abstaining on every external input is not transferred semantic detection or task utility."
+    },
+    {
+      "finding": 6,
+      "status": "Prospective T4 competence screen completed and stopped under the frozen gate",
+      "evidence": [
+        "experiments/17_external_validation/protocol.json",
+        "experiments/17_external_validation/results.json",
+        "experiments/17_external_validation/results_v2.json",
+        "experiments/17_external_validation/runtime_amendment_v2.json"
+      ],
+      "residual_limitation": "All three tasks have 0/24 strict-correct and 0/24 strict-format valid outputs. Attack-conditioned generation was not performed; external efficacy is unmeasured."
+    },
+    {
+      "finding": 7,
+      "status": "Metrics and paired uncertainty corrected in headline reporting",
+      "evidence": [
+        "experiments/15_router_remediation/results.json",
+        "paper/manuscript.md"
+      ],
+      "residual_limitation": "Strict free-generation gain is 8 points with conditional interval [0,17]; formatting remains part of that metric."
+    },
+    {
+      "finding": 8,
+      "status": "Task shortcut and inconclusive trigger test explicitly retained",
+      "evidence": [
+        "paper/manuscript.md",
+        "audit_review/upstream_provenance.json"
+      ],
+      "residual_limitation": "Full official RoBench/distractor reproduction and matched new counterfactual controls remain unrun."
+    },
+    {
+      "finding": 9,
+      "status": "Different-model blinded review completed; human adjudication unavailable",
+      "evidence": [
+        "experiments/16_blinded_annotation/status.json",
+        "remediation/completion_20261027/model_review.json",
+        "remediation/completion_20261027/model_review_protocol.json"
+      ],
+      "residual_limitation": "The reviewer disagrees on 47/160 note labels and 5/32 supported candidates. Original labels remain unchanged. No external human review or returned author spot-check is available."
+    },
+    {
+      "finding": 10,
+      "status": "All-head calibration reconstructed; new selector safeguards tested",
+      "evidence": [
+        "experiments/15_router_remediation/embedding_reconstruction.json",
+        "src/validation/calibration.py",
+        "tests/test_remediation.py"
+      ],
+      "residual_limitation": "No historical head or threshold changed. Prospective calibration is not empirically validated on new sufficiently supported domains."
+    },
+    {
+      "finding": 11,
+      "status": "Sample accounting and inference scope corrected",
+      "evidence": [
+        "paper/manuscript.md",
+        "experiments/15_router_remediation/results.json"
+      ],
+      "residual_limitation": "Shared schema, provider and payload/template uncertainty remains; local freezes are not external preregistration."
+    },
+    {
+      "finding": 12,
+      "status": "Pinned CPU reference and T4 cache checks passed; full timing run failed",
+      "evidence": [
+        "experiments/18_runtime_validation/cpu_results.json",
+        "experiments/18_runtime_validation/timing_results.json",
+        "experiments/18_runtime_validation/timing_protocol.json"
+      ],
+      "residual_limitation": "The repeated timing protocol failed at 2,048 tokens after 166/240 measurements. The shorter blocks have 20 repetitions per mode; the timing terminal weight hash is unavailable. Native conversion equivalence and the historical interrupted terminal hash remain unverified."
+    }
+  ],
+  "external_security_efficacy_established": false,
+  "independent_annotation_review_completed": true,
+  "general_defense_established": false,
+  "gpu_timing_repeated": false,
+  "original_evidence_modified": false,
+  "scope": "All 12 findings retain explicit dispositions and residual scientific limits. The new T4 competence screen failed under the frozen gate; attack efficacy is unmeasured. Different-model review is not human adjudication.",
+  "independent_annotation_review_kind": "different_model_not_human",
+  "human_annotation_review_completed": false,
+  "gpu_timing_attempt_finished": true,
+  "external_competence_screen_completed": true
+}

@@ -1,0 +1,620 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Trusted-State Routing</title><style>body{max-width:850px;margin:48px auto;font:17px/1.6 Georgia,serif;padding:0 24px}h1,h2,h3{line-height:1.2}table{border-collapse:collapse;width:100%;font-size:14px}th,td{border-bottom:1px solid #ccc;padding:8px;text-align:left}img{max-width:100%}a{color:#225588}</style></head><body><h1>Trusted-State Routing in Frozen Mamba: Benefits Within a Fact Schema and Limits of Transfer</h1>
+<p>Research manuscript draft — October 2026. Author and affiliation details to be supplied before submission.</p>
+<h2>Abstract</h2>
+<p>Preserving an earlier recurrent state permits discarding an untrusted update, but its security value depends on which updates are accepted. We examine a two-bank cache controller in frozen Mamba, with external text routing and identical-decision filtering controls. On an independently generated synthetic benchmark within a restricted fact schema, attacked two-candidate accuracy rises from 28% to 80%, whereas strict free-generation correctness rises from 20% to 28%. An unfitted only-conflict rule using the same hand-built extractor matches every trained-cascade decision on the 200 observed notes; the test therefore isolates neither a learned-routing contribution nor an accuracy benefit unique to two banks. Transfer to unfamiliar abstract attributes fails. Published-trigger controls use an easy restricted-choice adaptation and establish no defense effect. A fixed embedding comparison also transfers poorly: aggregate validation constraints conceal email false-positive rates of 50% for the expanded bigram head and 20% for the expanded embedding head. A post-audit conservative router closes the reported acceptance bypasses but abstains on 47 of 100 benign synthetic notes and every observed external input. These are engineering regressions and observed-set diagnostics, not new generalization evidence. Fixed external clean-competence configurations fail, and no external attack-conditioned efficacy result is available. Cache mechanics pass pinned small-model CPU and large-model T4 checks, while a closing T4 repetition study runs out of memory at 2,048 tokens; these measurements establish no general speed or security advantage. The findings support a bounded study of cache implementation and task-specific evidence checking, while showing that transferable, useful poisoning defense remains unestablished.</p>
+<h2>1. Introduction</h2>
+<p>Selective state-space language models process sequences through recurrent state updates. Mamba combines this mechanism with input-dependent selection [1]. An adversarial input can therefore affect information used later in a sequence. Hidden State Poisoning Attacks (HiSPA) motivate examining whether preserving earlier states can limit such effects [2]. State preservation, however, is only useful as a defense when a controller can determine which updates to keep.</p>
+<p>We investigate an inference controller that shares one frozen backbone between two cache banks. The controller processes an incoming span in a candidate bank and either commits that bank or retains the earlier state. We ask three questions: Does routing preserve useful task information under malicious additions? Does a benefit transfer beyond the router's supported schema? Does maintaining two banks add predictive value beyond filtering the same rejected text?</p>
+<p>The study gives mixed answers. A context-aware router yields a large gain on a controlled, independently generated fact benchmark. The gain vanishes on unfamiliar abstract attributes. Filtering controls reproduce controller predictions and generated text in the evaluated settings. A subsequent external-benchmark study reveals two separate obstacles: poor clean-task generation by the chosen larger backbone under the fixed prompts, and a frozen router that has no supported attribute representation for the external tasks.</p>
+<p>A bounded follow-up tests a frozen sentence-embedding representation and added external training data with task domains held out from fitting and threshold selection. This separates a representation comparison from the earlier hard-coded schema stress test, while retaining the distinction between detector performance and end-to-end security.</p>
+<p>Our contribution is an empirical examination of an implemented cache controller and the boundaries of its observed benefit. The post-hoc unfitted-rule comparison leaves an incremental contribution from fitting the symbolic router unestablished; the filtering controls likewise leave a two-bank predictive contribution unestablished. We provide checked cache operations, paired routing and filtering controls, retained failed-transfer experiments, and explicit distinctions between candidate ranking, free generation, attack effectiveness, and detector coverage. We do not introduce a trained dual-state backbone or establish a general HiSPA defense.</p>
+<h2>2. Background and related work</h2>
+<p>Mamba uses selective state spaces for sequence modeling [1]. Our experiments use published Mamba checkpoints with unchanged backbone weights. The smaller model has 129,135,360 parameters; the larger has 2,768,345,600. The latter is Mamba-2.8B by parameter scale, not a claim to evaluate the separate Mamba-2 architecture.</p>
+<p>HiSPA studies adversarial strings that damage retrieval through state corruption and introduces RoBench-25 [2]. We use its published triggers and supplied abstract material in bounded adaptations. These adaptations are not complete reproductions of the official RoBench protocol. Ordinary semantic false-correction notes used elsewhere in this study are synthetic prompt injections; their harmful answer effects alone do not establish the internal mechanism studied by HiSPA.</p>
+<p>Open-Prompt-Injection formalizes prompt injection and provides an evaluation across tasks, attacks and defenses [3]. We retain its original data selection and attack constructors for a three-task subset. Its classification parsers can detect labels anywhere in generated text, motivating a separate strict-format diagnostic. We retain the official scores for comparability.</p>
+<p>CLASP is directly relevant prior work: it detects malicious tokens using Mamba block output embeddings and an XGBoost classifier [4]. Our router instead compares textual claims with a limited set of extracted trusted facts. We do not run CLASP here and cannot claim superiority over it. The present study assesses a simpler controller and its limitations, rather than claiming to be the first defense inspired by recurrent-state poisoning.</p>
+<p>The follow-up uses a sentence-embedding checkpoint based on MiniLM [8, 9] and source records and attacks from BIPIA [10]. MiniLM representations encode semantic similarity but are not, by themselves, validated poisoning classifiers. BIPIA provides task-specific external contexts and published injection payloads; our bounded detection subset does not reproduce its complete attack-success evaluation.</p>
+<h2>3. Method and threat model</h2>
+<h3>3.1. Two-bank inference controller</h3>
+<p>Let F be the frozen model's deterministic state transition, s the committed cache, and x an incoming span. The controller constructs a separate candidate cache c = F(copy(s), x). A router produces a decision a from trusted reference text, x, and the task question. If a accepts the span, the controller commits c; otherwise it retains s. Subsequent tokens continue from the selected cache. Both convolution and state-space tensors are included in the copied cache.</p>
+<p>The word “trusted” denotes a supplied reference or a controller decision, not a proof that accepted information is correct. An incorrect acceptance can commit malicious content. The reference text used by the adaptive router remains fixed; accepting a span does not make that span new reference evidence for later routing.</p>
+<p>State access adapts the extractor supplied with HiSPA to the installed Transformers cache interface. Cached multi-token continuation in the fallback path retains the original zero-initialized scan and adds the analytically propagated initial-state contribution. For a linear state recurrence, that contribution is the initial state multiplied by the product of intervening transition factors; its output projection is added to the scan output. This is an implementation repair checked against full and tokenwise continuation, not a learned change to the backbone. The model weight checks do not imply that wrapper code is identical to unmodified library inference.</p>
+<p>With exactly the same accepted token sequence, deterministic transitions and exact arithmetic, filtering rejected spans and selecting preserved states yield the same recurrence. This follows by induction over spans: accepted spans apply the same transition, and rejected spans leave the committed state unchanged. Floating-point kernels and chunk boundaries can still introduce numerical differences, so we measure continuation errors and output agreement. The relevant potential architectural distinction is execution cost or support for state-dependent decisions, not an automatic accuracy gain from copying caches. Our evaluated router does not make state-dependent decisions.</p>
+<p><img alt="State controller" src="figures/state_controller.png" /></p>
+<p><em>Figure 1. Both cache banks share frozen model weights. An external text router selects the preserved or candidate state; the evaluated router does not inspect hidden-state anomalies.</em></p>
+<h3>3.2. Routers</h3>
+<p>The first learned router is a hashed word/bigram logistic classifier with 8,193 parameters, trained on 1,000 generated safe/malicious records split by source group into 700 training, 200 validation and 100 held-out records. This text-only classifier showed strong initial classification performance but weak independent transfer.</p>
+<p>The context-aware router extracts document counts, method names, CPU/GPU hardware and repetition counts. Fourteen features encode agreement, conflict, missing evidence, negation, quotations, directives and related conditions. Fast and detailed logistic heads contain 30 trained parameters in total. Detailed extraction handles scoped negation, quotations, multiple values and other-study references. It is trained using 1,000 controlled records, with 200 validation and 200 held-out records. Thresholds are fixed before independent evaluation.</p>
+<p>Gold answers, candidate lists, attack labels and record identifiers are excluded from inference features. The router is nevertheless specialized by its vocabulary and supported attributes. That design constraint is central to interpreting transfer failures.</p>
+<h3>3.3. Trust boundaries</h3>
+<p>In the fact and abstract experiments, a trusted source is supplied separately from incoming notes. An attacker can modify incoming notes but not the supplied reference, frozen weights or router parameters. The setup assumes correct trust boundaries and does not address poisoning of the trusted source itself.</p>
+<p>The external benchmark has a different boundary: only the task instruction is trusted, while the entire external text is untrusted. We do not provide the original clean target text as a trusted reference or expose the attack's insertion offsets to the router. This avoids giving the defense information unavailable in the stated deployment setting, but removes the factual reference on which its earlier success depended.</p>
+<h3>3.4. Fixed embedding and representation comparison</h3>
+<p>The follow-up compares three representations using newly fitted logistic heads: the 14 detailed symbolic features, 8,192 signed hashed word/bigram features, and a frozen <code>all-MiniLM-L6-v2</code> encoder with 22,713,216 parameters [8, 9]. Each receives the same three observable fields: trusted reference/instruction, external text, and question. The symbolic head is a single classifier, distinct from the earlier two-head cascade. The lexical comparator now includes all three fields rather than only the note.</p>
+<p>The encoder produces normalized 384-dimensional vectors for 254-token content windows with stride 192 and two special tokens. Every text token, including the tail, is covered. We concatenate mean trusted, mean question, mean note and maximum note vectors, plus absolute differences and elementwise products between the mean note and each of the other means, yielding 3,072 features. Dense features are standardized using training data only. Every head uses fixed C=1 logistic regression with balanced class weights; there is no hyperparameter sweep. Source identifiers, task answers, attack positions, clean counterparts and labels are excluded from features.</p>
+<p>For external data, only the task instruction and user question are trusted. The full external document is the candidate note, so rejection can discard legitimate evidence. This follow-up measures document-level detection; it does not implement a new span-localizing or end-to-end defense.</p>
+<h3>3.5. Post-audit conservative policy and calibration safeguards</h3>
+<p>The engineering revision <code>guarded-symbolic-v1</code> is an unfitted policy, separate from all historical routers. It produces accept, reject, or abstain with a reason and no calibrated probability claim. Unsupported questions, absent or ambiguous trusted values, and unverifiable notes abstain. Supported question paraphrases and number words are normalized within the same limited attribute schema. Operative answer/source overrides and extracted conflicts reject; explicitly rejected quotations are distinguished from unscoped quotations. Only acceptance commits a candidate state; rejection and abstention preserve the trusted state. Empty updates leave it unchanged. This policy does not add a general entailment model or validate every clause of an accepted document.</p>
+<p>The prospective calibration helper requires enough independent benign source groups in every represented domain, a minimum source-balanced attack recall, and a one-sided exact binomial upper bound on each domain's benign-group rejection rate. Repeated benign presentations from a source count as one group; any rejected benign presentation flags that group. The default minimum is 100 benign groups per domain, recall at least 0.5, and an upper FPR bound at most 0.05 with Bonferroni allocation of family alpha 0.05 across specified domains. No feasible useful threshold and insufficient calibration support are explicit outcomes. These software safeguards have regression tests; they have not been used to refit or replace the historical frozen operating points, and do not guarantee calibration on unseen domains.</p>
+<h2>4. Experimental design</h2>
+<h3>4.1. Evaluation stages</h3>
+<p>Initial free-generation pilots exposed poor clean accuracy in Mamba-130M. A subsequent validation comparison selected two-candidate cloze likelihood ranking; an independent fact-change diagnostic established context use on that narrow task. The exploratory follow-up reused an earlier test set and is reported as such. Later independent benchmarks froze routers and scoring before evaluation.</p>
+<p>Specifically, the initial published-trigger pilot had 0/20 clean and attacked answers correct, with all clean answers invalid under its True/False parser. The cloze diagnostic subsequently achieved 117/128 context-conditioned answers versus 64/128 without context across 64 fact-change pairs, with both members correct in 53 pairs. These observations motivated the restricted ranking setup; they do not repair or replace the failed free-generation outcome.</p>
+<p>The principal synthetic adaptive benchmark contains 200 independently generated notes across 100 source groups. Safe and malicious notes remain paired within groups. A separate model-based semantic review checked the notes. The same provider generated and reviewed them; this is not independent human annotation. The abstract generalization pilot uses 32 previously unevaluated supplied abstracts, with newly constructed cloze questions and synthetic notes in five conditions. Those abstracts were not independently authenticated against publications. This evaluates a fixed router outside its supported attribute schema; it is not a test of a domain-independent representation.</p>
+<p>The final published-trigger audit reuses 16 of those observed cloze tasks and tests seven natural-language HiSPA triggers plus the published optimized seed-35 trigger. Each trigger has a token-count-matched benign control. It uses candidate ranking, omits the full distractor protocol and tests transfer to 130M; results cannot be labeled official RoBench performance.</p>
+<h3>4.2. External benchmark and closing diagnostic</h3>
+<p>We prepare SST-2 sentiment, SMS Spam Collection and MRPC paraphrase tasks from Open-Prompt-Injection [3], using the underlying published datasets [5–7]. The pinned upstream selection yields 100 target and 100 injected-task records per task. Three target tasks, three injected tasks, five published attack constructors and 100 pairs yield 4,500 attack presentations. They reuse source records and templates, and are not 4,500 independent attack draws. There are 597 distinct normalized texts among the 600 baseline source records.</p>
+<p>A separate balanced development set contains 24 examples per task and excludes normalized final-source text; selected MRPC development and final records share no sentences. This project-level separation does not establish absence from model pretraining. The model generates greedily for at most 32 new tokens under the published instructions and fixed serialization. Responses are extracted by generated token positions.</p>
+<p>Before development outcomes, we require at least 18/24 strict correct, 22/24 valid label-at-start answers, and a 20-percentage-point gain over instruction-only accuracy in each task. These are our feasibility criteria, not official benchmark rules. Failure stops the planned security evaluation. After that failure, a separately sealed project-closing diagnostic evaluates the 600 reserved baseline examples and frozen-router coverage on all prepared inputs. This extension is post-development descriptive analysis; it does not retroactively satisfy the original gate. The 4,500 attack-conditioned generations are not performed.</p>
+<h3>4.3. Metrics, controls and verification</h3>
+<p>Candidate ranking sums complete answer-continuation token log probabilities. Free-generation accuracy is reported separately; its strict answer-at-start parser also measures formatting. External classification reports both published substring parsing and strict parsing. Neither score is necessarily an upper bound on the other: label names in later echoed instructions can change the published parser's output even when the opening label is valid. For example, an opening <code>Answer: negative</code> followed by a repetition of <code>positive or negative</code> is scored positive by the published sentiment parser. Instruction-only and empty-context controls expose performance that does not require the external source.</p>
+<p>Paired bootstrap intervals resample source groups or papers, preserving conditions belonging to the same unit. The adaptive headline interval uses 5,000 source-group resamples. Reported intervals are not adjusted for multiple comparisons across the study. A zero observed difference and degenerate interval do not prove population equivalence. Timing uses warm-up, CUDA synchronization, alternating variant order and fixed generated lengths; reported full-path timing includes preparation and routing.</p>
+<p>Cache checks verify independent storage, preservation, restoration, continuation and generation handoff. Available boundary weight hashes are compared; missing terminal hashes are disclosed. Saved-response numerical audits are distinguished from fresh GPU reruns. Failed and interrupted experiments, post-interruption repairs, and reused datasets remain identified in the artifact record.</p>
+<h3>4.4. Follow-up interventions and domain holdout</h3>
+<p>After review, a sealed evidence-sensitivity run retains all 16 observed HiSPA-pilot cases. Seven conditions produce 112 new evaluations: clean, empty source, supporting-sentence removal, cyclic substitution of another source abstract, artificial counterfactual replacement of the unique answer with its foil, clean with M35, and counterfactual with M35. Counterfactual conditions flip the expected candidate; they are artificial evidence probes, not corrected real-world publications. Complete-continuation likelihood remains primary, with per-token normalization as a secondary sensitivity check and 32-token greedy free generation scored separately. Reversing candidate order is checked on clean and counterfactual cases. This is diagnostic reuse, not an untouched test or an official HiSPA reproduction.</p>
+<p>A separate development screen evaluates exactly one instruction-tuned checkpoint, the third-party Transformers conversion <code>han1997/mamba-2.8b-zephyr-hf</code>, with its original author's chat template [11]. It reuses the 72 observed examples and unchanged competence thresholds. No prompt sweep or final-domain selection follows its results. Native-to-converted checkpoint equivalence is not independently verified.</p>
+<p>The router study has a fixed three-representation by two-training-corpus design. Both regimes use the same 1,000 synthetic training examples; the expanded regime adds 280 presentations from 40 BIPIA email records. All six heads use a common validation set of 200 synthetic and 70 email presentations. Thus synthetic-only describes fitting data, not absence of email from threshold selection. Each threshold maximizes validation recall subject to an aggregate benign false-positive rate of at most 5%, with ties favoring lower false-positive rate and then higher threshold. The constraint is aggregate, not per-domain.</p>
+<p>Final data contain 100 table and 50 code source records, each with one clean presentation and six deterministically selected published payloads inserted at the start or end: 1,050 presentations in total. Both task domains are excluded from router fitting and threshold selection. Before constructing attacks, exact normalized source matches and five-word-shingle Jaccard similarity of at least 0.90 form connected components. No component crosses training, validation and final partitions; the final sets contain 84 table and 50 code groups. This procedure does not exclude every semantic duplicate. BIPIA's text attack family lists overlap in Language Translation, so complete attack-family novelty is not claimed. Pretrained encoder exposure to these domains is unknown.</p>
+<p>All six heads and their thresholds are saved and hashed before final-domain featurization. Detection recall, benign false-positive rate, AUROC and calibration scores are reported per domain, with 2,000 source-group bootstrap draws for rate intervals. These are detector outcomes, not task utility or attack success. No model or threshold is revised against final outcomes.</p>
+<h3>4.5. Audit calculations, annotation repair, and prospective work</h3>
+<p>Post-audit calculations reuse the observed records and are descriptive. We compare the trained cascade, fast-only head, detailed-extractor only-conflict rule and conservative revision on the same 200 notes. The exact audit bypasses are regression inputs, not held-out attacks. Paired source-group bootstrap uses the same 5,000 draws and fixed seed separately for ranking and strict generation. Intervals condition on this schema, provider and template collection and are not adjusted across all exploratory study comparisons.</p>
+<p>Frozen MiniLM inference was repeated in the recorded CPU software environment without fitting heads or changing thresholds. All six heads' per-domain validation scores were reconstructed; final embedding probabilities were compared with the saved values. A new review exporter randomizes candidate positions, shuffles notes and uses opaque identifiers. Its V2 reviewer packet excludes the mapping, labels and a privately retained 256-bit random shuffle seed; opaque IDs are generated independently with system randomness. A first development export with a public date-based seed was withdrawn before review, and its artifacts are retained. The completed follow-up supplies this packet to a different local model with a pinned digest, without labels or the private mapping. It is model-based review; no human adjudication is available. All disagreements remain in the record.</p>
+<p>A separately frozen prospective external protocol selects new exact-normalized-text-disjoint records from the pinned published sources and uses unchanged published attack constructors. It has a new 72-example competence screen, reserved clean baselines and 4,500 attack presentations. Its hash-order balanced selection and fixed trailing-newline prompt are adaptations, not the original first-N procedure or full official benchmark reproduction. The subsequent T4 execution completed the 72-example screen after a versioned token-boundary runtime repair; all three tasks failed the unchanged gate (Section 5.10). The protocol requires all tasks to pass the unchanged competence gate before any attack-conditioned generations, with no prompt sweep, checkpoint replacements or selection of favorable tasks. Same-task injection rows must be distinguished when interpreting attack objectives. These prepared inputs and runners are not efficacy results.</p>
+<h2>5. Results</h2>
+<h3>5.1. Routing helps within its supported schema</h3>
+<table>
+<thead>
+<tr>
+<th>Evaluation</th>
+<th style="text-align: right;">Clean accuracy</th>
+<th style="text-align: right;">Attacked original</th>
+<th style="text-align: right;">Attacked controller</th>
+<th>Interpretation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Reused synthetic cloze set</td>
+<td style="text-align: right;">96%</td>
+<td style="text-align: right;">76%</td>
+<td style="text-align: right;">94%</td>
+<td>Exploratory reused test</td>
+</tr>
+<tr>
+<td>Independent text-router benchmark</td>
+<td style="text-align: right;">79%</td>
+<td style="text-align: right;">29%</td>
+<td style="text-align: right;">29%</td>
+<td>Text-router transfer failed</td>
+</tr>
+<tr>
+<td>Independent adaptive benchmark</td>
+<td style="text-align: right;">81%</td>
+<td style="text-align: right;">28%</td>
+<td style="text-align: right;">80%</td>
+<td>Gain within the supported schema</td>
+</tr>
+<tr>
+<td>Abstract generalization, late attack</td>
+<td style="text-align: right;">100%</td>
+<td style="text-align: right;">34.4%</td>
+<td style="text-align: right;">34.4%</td>
+<td>Gain did not transfer</td>
+</tr>
+<tr>
+<td>Published-trigger transfer pilot, each trigger</td>
+<td style="text-align: right;">100%</td>
+<td style="text-align: right;">100%</td>
+<td style="text-align: right;">100%</td>
+<td>Harmful answer effect not established</td>
+</tr>
+</tbody>
+</table>
+<p>All table entries are two-candidate likelihood accuracy. Different rows use different datasets and should not be pooled. The adaptive gain is 52 percentage points, with paired 95% interval [42, 62]. The router rejects 99/100 malicious notes and none of the 100 safe notes. Safe-note accuracy remains 83% for both variants. Removing trusted context reduces router classification accuracy to 50%; the fast-only router matches the cascade at 99.5%, leaving no additional classification benefit from escalation in this test.</p>
+<p>Free generation gives a smaller result: attacked accuracy rises from 20% to 28%, while clean accuracy is 28%. Thus the large candidate-ranking improvement cannot be presented as a corresponding gain in unrestricted generation. On 20 cases requiring useful external evidence, the adaptive system preserves 16/20 candidate answers and 7/20 free answers, matching the original model.</p>
+<p><img alt="Transfer results" src="figures/transfer_results.png" /></p>
+<p><em>Figure 2. Separate evaluation settings; all scores are two-candidate accuracy. Clean reference marks are shared by both variants. The settings differ in data and router; their percentages are not pooled.</em></p>
+<h3>5.2. Out-of-schema failure and filtering controls</h3>
+<p>On the 32-abstract pilot, clean candidate accuracy is 32/32 compared with 17/32 without context. Late attacks reduce both variants to 11/32. The frozen router rejects none of 64 malicious notes, and all 160 evaluated note/question combinations have unsupported attributes. This is an out-of-schema failure of this particular router. The clean competence check passed and attacks were evaluated in this experiment; it is distinct from the later external benchmark whose clean competence gate failed.</p>
+<p>Identical-decision filtering matches controller candidate answers and generated texts in all 200 text-router cases. In abstract generalization it matches all 128 actual-routing cases and all four forced-mask probes. These controls support correct cache selection while providing no observed predictive advantage unique to the two-bank implementation. Timing likewise does not establish a general advantage: full-path throughput changes from 28.74 to 39.44 tokens/s on the adaptive synthetic benchmark, but from 16.84 to 16.28 on abstract generalization.</p>
+<h3>5.3. Published-trigger audit is inconclusive about defense efficacy</h3>
+<p>For each of eight fixed published triggers, both variants score 16/16, as they do under clean and matched benign conditions. Empty-context accuracy is already 12/16. There is no observed attack-induced candidate-accuracy loss to recover. A post-hoc source audit found that a literal-answer-presence heuristic solves all 16 pilot tasks and all 32 parent tasks: construction requires the answer to occur in the abstract and the foil to be absent. Neither candidate appears verbatim in the 16 pilot questions, and correct-option positions are balanced 8/8. The inspected scoring path passes no gold index to the model or router, but these checks do not exclude pretraining overlap or every implementation error. The task shortcut and high question-only accuracy weaken the ceiling result; they do not establish which shortcut the model used.</p>
+<p>The CPU router diagnostic accepts all 256 trigger presentations on the 32 abstract tasks. Acceptance is a coverage finding, while unchanged answers reflect the limited attack-effect measurement; neither establishes general robustness or a successful HiSPA defense.</p>
+<p>The new evidence-sensitivity run reproduces all 48 comparable historical score vectors exactly and passes 32 candidate-order checks. The following counts are for the undefended model on the same 16 cases; free generation uses the strict answer-at-start parser.</p>
+<table>
+<thead>
+<tr>
+<th>Evidence condition</th>
+<th style="text-align: right;">Candidate ranking correct</th>
+<th style="text-align: right;">Strict free-generation correct</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>clean</td>
+<td style="text-align: right;">16/16</td>
+<td style="text-align: right;">7/16</td>
+</tr>
+<tr>
+<td>empty</td>
+<td style="text-align: right;">12/16</td>
+<td style="text-align: right;">0/16</td>
+</tr>
+<tr>
+<td>support_removed</td>
+<td style="text-align: right;">11/16</td>
+<td style="text-align: right;">0/16</td>
+</tr>
+<tr>
+<td>unrelated</td>
+<td style="text-align: right;">10/16</td>
+<td style="text-align: right;">0/16</td>
+</tr>
+<tr>
+<td>counterfactual</td>
+<td style="text-align: right;">15/16</td>
+<td style="text-align: right;">6/16</td>
+</tr>
+<tr>
+<td>clean_M35</td>
+<td style="text-align: right;">16/16</td>
+<td style="text-align: right;">7/16</td>
+</tr>
+<tr>
+<td>counterfactual_M35</td>
+<td style="text-align: right;">14/16</td>
+<td style="text-align: right;">6/16</td>
+</tr>
+</tbody>
+</table>
+<p>The model responds to altered evidence in 15/16 cases, which weighs against a fixed leaked option index as the explanation for its answers. However, substantial original-answer accuracy survives supporting-evidence removal or unrelated-source substitution. The 16/16 clean ranking result contrasts with 7/16 strict free-generation accuracy. These controls indicate both source sensitivity and strong answer priors; they do not exclude every leakage mechanism. Secondary length normalization preserves the clean, empty, support-removed and counterfactual ranking counts, but changes the unrelated and counterfactual-M35 counts. The 15/16 to 14/16 counterfactual-M35 change has no matched benign counterfactual control and is not treated as a reproduced HiSPA effect.</p>
+<h3>5.4. Larger-model hardware feasibility</h3>
+<p>Mamba-2.8B passes frozen FP32 inference on a Tesla T4 at batch one. All 128 convolution/SSM cache tensors pass the implementation checks. Continuation and chunk-versus-token maximum logit errors are approximately 2.38e-5 and 2.29e-5, below the existing 1e-3 tolerance. All six forced-acceptance output comparisons match original generation; all six forced-rejection comparisons match filtering. Backbone hashes remain unchanged.</p>
+<p>Across prefix lengths 128, 512 and 2,048, peak allocated memory reaches 13.84 GiB on a device reporting 14.56 GiB capacity. At 2,048 prefix tokens plus the trial's fixed suffix and eight generated tokens, mean full-path times over two repetitions are 11.515 s original, 11.651 s forced acceptance, 11.742 s forced rejection and 11.652 s filtering. These are descriptive reference-kernel measurements, not optimized-kernel benchmarks or evidence that training and arbitrary context lengths fit.</p>
+<h3>5.5. External benchmark competence and coverage</h3>
+<table>
+<thead>
+<tr>
+<th>Development task</th>
+<th style="text-align: right;">Published parser correct</th>
+<th style="text-align: right;">Strict parser correct</th>
+<th style="text-align: right;">Strict valid</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sentiment</td>
+<td style="text-align: right;">12/24</td>
+<td style="text-align: right;">10/24</td>
+<td style="text-align: right;">13/24</td>
+</tr>
+<tr>
+<td>Spam detection</td>
+<td style="text-align: right;">8/24</td>
+<td style="text-align: right;">0/24</td>
+<td style="text-align: right;">1/24</td>
+</tr>
+<tr>
+<td>Paraphrase detection</td>
+<td style="text-align: right;">12/24</td>
+<td style="text-align: right;">0/24</td>
+<td style="text-align: right;">0/24</td>
+</tr>
+</tbody>
+</table>
+<p>All tasks fail the predeclared gate. Strict parsing rejects otherwise interpretable formats such as <code>Sentiment: positive</code>; zero strict accuracy does not imply zero semantic knowledge. Yet published-parser scores are also only 50%, 33.3% and 50% on these balanced samples. Poor performance is therefore not solely a strict-format artifact.</p>
+<p>The final CPU coverage diagnostic rejects 0/4,500 attack presentations and 0/600 legitimate baseline inputs. All 5,100 routing questions have unsupported attributes. With all spans accepted, the controller makes no rejection-based intervention on these inputs. This does not measure the attack success of the 4,500 payloads, which were not passed through the language model for an efficacy evaluation.</p>
+<!-- FINAL_BASELINE_TABLE_START -->
+<p>The post-development closing diagnostic completed all 600 reserved baseline examples. It retains the original failed competence gate and does not include attack-conditioned generations.</p>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Task</th>
+<th style="text-align: right;">Published parser correct</th>
+<th style="text-align: right;">Strict parser correct</th>
+<th style="text-align: right;">Strict valid</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Target</td>
+<td>sst2</td>
+<td style="text-align: right;">39/100</td>
+<td style="text-align: right;">12/100</td>
+<td style="text-align: right;">16/100</td>
+</tr>
+<tr>
+<td>Target</td>
+<td>sms_spam</td>
+<td style="text-align: right;">23/100</td>
+<td style="text-align: right;">0/100</td>
+<td style="text-align: right;">1/100</td>
+</tr>
+<tr>
+<td>Target</td>
+<td>mrpc</td>
+<td style="text-align: right;">50/100</td>
+<td style="text-align: right;">0/100</td>
+<td style="text-align: right;">0/100</td>
+</tr>
+<tr>
+<td>Injected</td>
+<td>sst2</td>
+<td style="text-align: right;">53/100</td>
+<td style="text-align: right;">58/100</td>
+<td style="text-align: right;">71/100</td>
+</tr>
+<tr>
+<td>Injected</td>
+<td>sms_spam</td>
+<td style="text-align: right;">11/100</td>
+<td style="text-align: right;">0/100</td>
+<td style="text-align: right;">0/100</td>
+</tr>
+<tr>
+<td>Injected</td>
+<td>mrpc</td>
+<td style="text-align: right;">49/100</td>
+<td style="text-align: right;">0/100</td>
+<td style="text-align: right;">0/100</td>
+</tr>
+</tbody>
+</table>
+<p>The target role measures the legitimate task on its reserved inputs. The injected role measures the attacker task on its own clean inputs, not attack success. The roles differ in source records and published instruction variants, so their difference does not isolate a causal prompt effect. Each task/role sample is balanced and selected by the published deterministic procedure. These are descriptive results for the selected records, not random population samples. Formatting and task dependence must be considered alongside accuracy.</p>
+<!-- FINAL_BASELINE_TABLE_END -->
+
+<p>The fixed instruction-tuned checkpoint also fails the development gate: strict correctness is 0/24, 2/24 and 0/24 for sentiment, spam and paraphrase; published-parser correctness is 12/24, 3/24 and 4/24. Many responses provide explanatory prose rather than the requested labels. These measurements concern the fixed checkpoint/prompt/parser configuration, not an intrinsic ceiling on semantic competence. The stopping rule prevents an end-to-end security-efficacy claim for this configuration; the original failed base-model result remains intact.</p>
+<!-- REVISION_EXPERIMENTS -->
+<h3>5.6. Embeddings and added diversity do not reliably transfer</h3>
+<p>The table reports attack rejection and benign rejection at thresholds fixed on the common mixed validation set. Each table cell uses 600 attacks and 100 clean presentations; each code cell uses 300 attacks and 50 clean presentations.</p>
+<table>
+<thead>
+<tr>
+<th>Training</th>
+<th>Representation</th>
+<th style="text-align: right;">Table: recall / FPR</th>
+<th style="text-align: right;">Code: recall / FPR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Synthetic</td>
+<td>symbolic</td>
+<td style="text-align: right;">0.0% / 0.0%</td>
+<td style="text-align: right;">0.0% / 0.0%</td>
+</tr>
+<tr>
+<td>Synthetic</td>
+<td>bigrams</td>
+<td style="text-align: right;">0.0% / 0.0%</td>
+<td style="text-align: right;">0.0% / 0.0%</td>
+</tr>
+<tr>
+<td>Synthetic</td>
+<td>embeddings</td>
+<td style="text-align: right;">55.8% / 51.0%</td>
+<td style="text-align: right;">12.3% / 6.0%</td>
+</tr>
+<tr>
+<td>Synthetic + email</td>
+<td>symbolic</td>
+<td style="text-align: right;">9.7% / 8.0%</td>
+<td style="text-align: right;">57.3% / 14.0%</td>
+</tr>
+<tr>
+<td>Synthetic + email</td>
+<td>bigrams</td>
+<td style="text-align: right;">1.0% / 1.0%</td>
+<td style="text-align: right;">0.3% / 0.0%</td>
+</tr>
+<tr>
+<td>Synthetic + email</td>
+<td>embeddings</td>
+<td style="text-align: right;">56.0% / 36.0%</td>
+<td style="text-align: right;">17.3% / 16.0%</td>
+</tr>
+</tbody>
+</table>
+<p>With added email training, embeddings reject 56% of table attacks while rejecting 36% of benign table inputs, compared with 55.8% and 51% under synthetic-only fitting. On code, the expanded embedding model rejects 17.3% of attacks and 16% of benign inputs. These results do not show reliable transfer of the validation operating point. The embedding model also does not consistently outperform the symbolic representation, whose expanded-data code recall is 57.3% with 14% false positives. Full per-domain scores, rate intervals and all frozen predictions are retained in the artifact report.</p>
+<p>The validation set contains 100 synthetic and only 10 email benign examples; an aggregate 5% constraint can conceal weaker calibration on the smaller domain. This is a limitation of the fixed design, not grounds to recalibrate against the final outcomes. Whole-document rejection further risks losing legitimate task evidence. Accordingly, the detector results do not establish downstream task preservation, reduced attack success, or an advantage specific to two memory banks.</p>
+<p>The CPU encoder processes 3,143 unique texts in 4,083 windows with 19.62 seconds of recorded encoding time. This is a batched local measurement, not per-request overhead or an end-to-end T4 speed comparison. A tokenizer API repair occurred before fitting and final featurization; original sources and the amendment are retained. Encoder outputs agree with the published SentenceTransformer path within 2.98e-8 on three short verification inputs. Four harness tests and independent audits of 6,300 saved detector decisions and 12 result cells pass.</p>
+<h3>5.7. Post-audit baselines, routing failures and safeguards</h3>
+<!-- AUDIT_REVISION_20261022 -->
+
+<p>The unfitted only-conflict rule, trained cascade and fast-only head make identical decisions on all 200 observed synthetic notes. They each reject 99/100 malicious notes and 0/100 benign notes. The rule uses the existing detailed hand-built extractor and was evaluated post hoc; it is not a schema-free detector or a new confirmatory result. Identical downstream state selection under the same decisions is a deterministic inference, not a fresh rule-baseline generation run.</p>
+<table>
+<thead>
+<tr>
+<th>Metric on the main synthetic test</th>
+<th style="text-align: right;">Original</th>
+<th style="text-align: right;">Controller</th>
+<th style="text-align: right;">Paired difference</th>
+<th style="text-align: right;">95% interval</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Two-choice ranking</td>
+<td style="text-align: right;">28/100</td>
+<td style="text-align: right;">80/100</td>
+<td style="text-align: right;">52 percentage points</td>
+<td style="text-align: right;">[42, 62] points</td>
+</tr>
+<tr>
+<td>Strict free generation</td>
+<td style="text-align: right;">20/100</td>
+<td style="text-align: right;">28/100</td>
+<td style="text-align: right;">8 percentage points</td>
+<td style="text-align: right;">[0, 17] points</td>
+</tr>
+</tbody>
+</table>
+<p>The free-generation interval includes zero, and clean strict generation is 28/100. The ranking gain cannot be substituted for a general-generation effect.</p>
+<p>Frozen-weight analysis bounds unsupported-question risk below 0.05862 in the fast head and 0.05064 in the detailed head, both below the 0.5 threshold. Thus this historical router deterministically accepts unsupported questions under the inspected feature constraints. Spelled-out false counts, untyped numeric overrides, mixed agreement plus overrides, and supported-meaning question paraphrases produce further accepted malicious-note probes. These are CPU routing bypasses, not measured successful language-model attacks.</p>
+<table>
+<thead>
+<tr>
+<th>Router on observed notes</th>
+<th style="text-align: right;">Attack reject</th>
+<th style="text-align: right;">Attack abstain</th>
+<th style="text-align: right;">Benign accept</th>
+<th style="text-align: right;">Benign abstain</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trained cascade</td>
+<td style="text-align: right;">99/100</td>
+<td style="text-align: right;">0/100</td>
+<td style="text-align: right;">100/100</td>
+<td style="text-align: right;">0/100</td>
+</tr>
+<tr>
+<td>Fast-only head</td>
+<td style="text-align: right;">99/100</td>
+<td style="text-align: right;">0/100</td>
+<td style="text-align: right;">100/100</td>
+<td style="text-align: right;">0/100</td>
+</tr>
+<tr>
+<td>Unfitted only-conflict</td>
+<td style="text-align: right;">99/100</td>
+<td style="text-align: right;">0/100</td>
+<td style="text-align: right;">100/100</td>
+<td style="text-align: right;">0/100</td>
+</tr>
+<tr>
+<td>Conservative revision</td>
+<td style="text-align: right;">60/100</td>
+<td style="text-align: right;">40/100</td>
+<td style="text-align: right;">53/100</td>
+<td style="text-align: right;">47/100</td>
+</tr>
+</tbody>
+</table>
+<p>The conservative revision accepts none of the six audit probes or 100 observed malicious notes. However, it detects only 60 of those notes by rejection and abstains on the other 40; it also abstains on 47/100 benign notes. All 160 abstract-note presentations and all 5,100 external coverage presentations abstain. Abstention prevents those updates from being committed; it does not establish semantic attack detection, transferred competence, or preservation of task utility. No revised-controller answer generations were run.</p>
+<h3>5.8. Per-domain validation reconstruction</h3>
+<p>The following counts use each original frozen threshold. Synthetic validation contains 100 benign notes; email contains only ten benign source records. Aggregate benign FPR can therefore conceal large email errors.</p>
+<table>
+<thead>
+<tr>
+<th>Fitting corpus</th>
+<th>Representation</th>
+<th style="text-align: right;">Synthetic benign rejected</th>
+<th style="text-align: right;">Email benign rejected</th>
+<th style="text-align: right;">Aggregate benign rejected</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Synthetic</td>
+<td>symbolic</td>
+<td style="text-align: right;">0/100</td>
+<td style="text-align: right;">0/10</td>
+<td style="text-align: right;">0/110</td>
+</tr>
+<tr>
+<td>Synthetic</td>
+<td>bigrams</td>
+<td style="text-align: right;">5/100</td>
+<td style="text-align: right;">0/10</td>
+<td style="text-align: right;">5/110</td>
+</tr>
+<tr>
+<td>Synthetic</td>
+<td>embeddings</td>
+<td style="text-align: right;">1/100</td>
+<td style="text-align: right;">4/10</td>
+<td style="text-align: right;">5/110</td>
+</tr>
+<tr>
+<td>Synthetic + email</td>
+<td>symbolic</td>
+<td style="text-align: right;">0/100</td>
+<td style="text-align: right;">0/10</td>
+<td style="text-align: right;">0/110</td>
+</tr>
+<tr>
+<td>Synthetic + email</td>
+<td>bigrams</td>
+<td style="text-align: right;">0/100</td>
+<td style="text-align: right;">5/10</td>
+<td style="text-align: right;">5/110</td>
+</tr>
+<tr>
+<td>Synthetic + email</td>
+<td>embeddings</td>
+<td style="text-align: right;">2/100</td>
+<td style="text-align: right;">2/10</td>
+<td style="text-align: right;">4/110</td>
+</tr>
+</tbody>
+</table>
+<p>The expanded bigram head rejects 5/10 benign emails (50%) while meeting its aggregate constraint at 5/110. The synthetic-only and expanded embedding heads reject 4/10 (40%) and 2/10 (20%) benign emails. This is measured development miscalibration, not merely a possible limitation or a reason to recalibrate against observed final outcomes.</p>
+<p>The repeated pinned CPU encoder reproduces all 2,100 stored final embedding probabilities exactly, with zero decision differences. Short-text encoder parity has maximum error 2.98e-8 and all four embedding harness tests pass in the recorded ML environment. These are computational repetitions on the same records and frozen heads, not additional independent samples or new fitting.</p>
+<h3>5.9. Sample accounting and reference execution</h3>
+<table>
+<thead>
+<tr>
+<th>Study</th>
+<th style="text-align: right;">Presentations or decisions</th>
+<th>Source units</th>
+<th>Reuse and scope</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Main synthetic test</td>
+<td style="text-align: right;">200 notes; 100 attacked pairs</td>
+<td>100 source groups</td>
+<td>Generated within one supported schema</td>
+</tr>
+<tr>
+<td>Abstract transfer</td>
+<td style="text-align: right;">160 note presentations</td>
+<td>32 abstract tasks</td>
+<td>Constructed notes; source-group analysis</td>
+</tr>
+<tr>
+<td>HiSPA interventions</td>
+<td style="text-align: right;">112 evaluations</td>
+<td>16 reused cases</td>
+<td>Seven conditions on observed cases</td>
+</tr>
+<tr>
+<td>Router transfer</td>
+<td style="text-align: right;">1,050 presentations; 6,300 decisions</td>
+<td>150 records; 134 source groups</td>
+<td>Six models share the same inputs; payload families reused</td>
+</tr>
+<tr>
+<td>Instruction-tuned screen</td>
+<td style="text-align: right;">72 examples</td>
+<td>Previously observed development records</td>
+<td>Gate failure retained</td>
+</tr>
+</tbody>
+</table>
+<p>A fresh pinned Mamba-130M CPU comparison captures unpatched full-sequence reference logits before installing the cache wrapper. At 8-, 16- and 32-token prefixes with four-token suffixes, maximum full-reference logit error is 6.9618e-05 and maximum chunk/token error is 0.00019455, below 1e-3. Cloned states have independent storage, committed states remain unchanged during candidate advancement, and before/after weight hashes match the recorded historical checkpoint. This is a small-model CPU smoke test, not a new T4 timing or large-model efficacy result.</p>
+<p>Local input/code seals establish the checked artifact sequence, not externally authenticated preregistration. Source-group intervals do not capture all uncertainty from shared providers, domains or attack families.</p>
+<!-- COMPLETION_20261028 -->
+<h3>5.10. Completed prospective screen and blinded model review</h3>
+<p>The October 28 T4 run used the frozen base Mamba-2.8B checkpoint, FP32, the fixed published-task prompts and unchanged competence criteria. It completed 72 new source-example generations and three instruction-only controls. The original runtime attempt failed before scoring a source example because the tokenizer joined trusted padding with the first untrusted word. A versioned adapter repair preserves the full prompt and its input token IDs; all 5,172 prepared records pass the exact AutoTokenizer serialization check. Both attempts and the repair are retained. No prompt, checkpoint, threshold or task was selected using these outcomes.</p>
+<table>
+<thead>
+<tr>
+<th>Task</th>
+<th style="text-align: right;">Examples</th>
+<th style="text-align: right;">Published parser correct</th>
+<th style="text-align: right;">Strict correct</th>
+<th style="text-align: right;">Strict valid</th>
+<th>Gate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SST-2</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">14/24</td>
+<td style="text-align: right;">0/24</td>
+<td style="text-align: right;">0/24</td>
+<td>Fail</td>
+</tr>
+<tr>
+<td>SMS Spam</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">0/24</td>
+<td style="text-align: right;">0/24</td>
+<td style="text-align: right;">0/24</td>
+<td>Fail</td>
+</tr>
+<tr>
+<td>MRPC</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">12/24</td>
+<td style="text-align: right;">0/24</td>
+<td style="text-align: right;">0/24</td>
+<td>Fail</td>
+</tr>
+</tbody>
+</table>
+<p>All three strict instruction-only gains are zero. The permissive published parser can recover labels from some paragraph answers; zero strict correctness therefore does not imply zero semantic answer content. The screen differs from the earlier development study in its source selection and fixed trailing-newline prompt, so the counts are not a controlled before/after comparison. The frozen strict-format gate failed, so the protocol stopped before attack-conditioned generation; before/after backbone hashes match. The 4,500 prepared attacks therefore provide no measured security efficacy result. This establishes a competence/format limitation of the tested checkpoint/prompt configuration. It does not settle whether a competent model with another preregistered configuration could benefit from routing.</p>
+<p>A different-model blinded review used local Llama 3.2 3B at temperature zero with a pinned model digest. It received only the randomized V2 packet, one item per request, and completed 32 source items and 160 notes in 32 requests. Relative to the retained annotations it disagreed on 47/160 note labels and 5/32 supported candidates. These are disagreements, not an adjudicated error rate. Original labels remain unchanged. The abstract notes were generated/reviewed with Claude, while Llama had been used for an earlier separate synthetic pilot; this is bounded model/provider separation. No external human adjudication or returned human spot-check is available.</p>
+<h3>5.11. Repeated T4 timing and a memory failure</h3>
+<p>The follow-up planned three warmups per mode at each prefix length, then 20 timed repetitions per mode. It completed 36 warmups and 166/240 planned measured paths before CUDA out-of-memory failure during the 2,048-token block. The 128- and 512-token blocks each completed all 20 repetitions per mode; only six measured paths completed at 2,048 tokens. The full protocol failed, and its terminal weight hash is unavailable. Four mode orders are shuffled within paired repetitions with a fixed seed. Batch size is one, precision FP32 and generation length eight tokens. CUDA synchronization brackets full-path timing, including prefix processing, candidate-state creation/copy, speculative advancement, selection and generation. Loading, garbage collection and allocator-cache clearing are excluded. The decisions are forced, so this measures cache-path cost without learned-router cost or attack efficacy.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Prefix tokens</th>
+<th style="text-align: right;">Original median (s)</th>
+<th style="text-align: right;">Forced accept median (s)</th>
+<th style="text-align: right;">Forced reject median (s)</th>
+<th style="text-align: right;">Filtering median (s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">128</td>
+<td style="text-align: right;">1.110</td>
+<td style="text-align: right;">1.347</td>
+<td style="text-align: right;">1.335</td>
+<td style="text-align: right;">1.079</td>
+</tr>
+<tr>
+<td style="text-align: right;">512</td>
+<td style="text-align: right;">2.700</td>
+<td style="text-align: right;">2.937</td>
+<td style="text-align: right;">2.939</td>
+<td style="text-align: right;">2.635</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;">Prefix tokens</th>
+<th style="text-align: right;">Accept/original median paired time ratio</th>
+<th style="text-align: right;">Reject/filter median paired time ratio</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">128</td>
+<td style="text-align: right;">1.212</td>
+<td style="text-align: right;">1.234</td>
+</tr>
+<tr>
+<td style="text-align: right;">512</td>
+<td style="text-align: right;">1.086</td>
+<td style="text-align: right;">1.105</td>
+</tr>
+</tbody>
+</table>
+<p>The tables are post-failure descriptive summaries of the completely observed shorter blocks. All 80 paired output-token comparisons in those blocks agree. Pre-timing cache isolation/continuation checks passed. The planned complete-run uncertainty analysis was not reached; no complete-run interval or terminal weight check is claimed. Raw rows retain peak allocated/reserved memory, and the derived summary includes p95 values. The out-of-memory error reported 13.83 GiB allocated by PyTorch on a 14.56 GiB T4. Earlier short feasibility successes therefore do not guarantee repeated two-bank execution at 2,048 tokens. These observations condition on one workload, runtime and T4.</p>
+<!-- END_COMPLETION_20261028 -->
+
+<h2>6. Discussion</h2>
+<p>The strongest positive result supports checking incoming claims against a trusted reference within a supported schema. It does not identify an accuracy advantage caused uniquely by storing two states. The controller can preserve a state mechanically while still making ineffective routing decisions. Outside its schema, this implementation generally accepts content, exposing the original model to the same input it would otherwise receive.</p>
+<p>The embedding follow-up shows why removing explicit schema rules is not sufficient. A richer representation can reject more attacks while also rejecting legitimate inputs, and a development threshold can transfer poorly. Limited added email diversity changes results without establishing reliable domain-independent behavior. The study evaluates one frozen small encoder and one fixed head family; it does not rule out stronger detectors or more diverse training.</p>
+<p>The larger model fits the earlier short T4 feasibility workloads. The repeated follow-up reaches a memory limit at 2,048 tokens, so feasibility depends on the workload and runtime. Clean-task competence remains a separate requirement. When baseline instruction following is weak, low measured attack success can be mistaken for defense, while errors under attack can conflate task failure with adversarial damage. The external development gate makes this interpretive problem visible rather than treating all benchmark outcomes as security evidence.</p>
+<p>The research question is not disproved for every detector, prompt or state-space model. A controller with better evidence or hidden-state features could behave differently. Our narrower conclusion is that this frozen-backbone implementation, with its evaluated text routers, does not establish a general memory-poisoning defense. The bounded follow-up retains the frozen final outcomes rather than selecting a favorable representation, domain or threshold after evaluation.</p>
+<h2>7. Limitations and reproducibility</h2>
+<p>The synthetic facts use a small schema and supplied trusted references. The attack set is not a comprehensive adaptive adversary against the defense. Independent generated notes received model-based review from the same provider, not independent human annotation. The abstract pilot uses constructed cloze questions and a supplied source snapshot. A later provenance audit matches all 120 abstract byte strings, titles and original question labels to the cited Git commit; this does not independently authenticate every underlying publication. Its construction permits a literal answer-presence shortcut. The historical model-based semantic reviewer always saw the correct candidate first and notes in a fixed order, creating annotation-review cues. The replacement exporter removes these mechanical cues; a different-model blinded review disagrees on 47/160 note labels and 5/32 candidates, without human adjudication; those cues were not supplied as labels to the evaluated Mamba scorer. Some later trigger tests deliberately reuse observed tasks, which limits independent confirmation.</p>
+<p>The official RoBench protocol, including its full distractor setup, is not reproduced. The original external study covers three tasks and five attack constructors rather than every Open-Prompt-Injection experiment. The later BIPIA-derived detector subset covers two held-out final domains, six payloads per source and start/end positions, without official BIPIA task-utility or attack-success scoring. Its original security gate failed; the closing baseline extension is explicitly post-development. We do not evaluate CLASP or another published defense head-to-head. Accordingly, no comparative superiority, comprehensive robustness, or state-of-the-art claim is justified.</p>
+<p>Sample sizes are modest, attack templates and source records are reused, and candidate ranking is a restricted output setting. Strict-format metrics can conflate formatting and semantics. Timing varies by context, routing decision and kernel implementation. The historical T4 trial used two timing repetitions. The closing T4 follow-up planned 20 repetitions per path and three warmups at each length, with reference PyTorch kernels and forced decisions. It completed the 128- and 512-token blocks, then failed at 2,048 tokens after 166/240 measurements. Its terminal weight hash is unavailable. These results support no general throughput or memory-fit guarantee.</p>
+<p>Later artifacts and the revised replay loader pin model/tokenizer revisions; earlier Mamba-130M loaders omit a revision argument. Historical fingerprints and later pinned records help detect drift but do not make those earlier loaders pinned. Artifacts retain input/code hashes, raw predictions, timing records, data provenance, notebook reproductions and observed weight-hash checks. The third-party instruction-checkpoint conversion remains unvalidated against native upstream weights. The new pinned CPU parity check does not close that conversion question or establish GPU/optimized-kernel equivalence. Earlier GPU runtime losses are recorded as unknown outcomes; recovered reruns are not counted as independent replications. The closing diagnostic retained 410 responses from an October 11 attempt, then 572 responses from an unchanged October 13 rerun before a second connection loss. A documented execution-only continuation retains those 572 responses and generates the 28 missing cases with the same inputs and generation function. The continuation reproduced exact token agreement on 12 overlap cases and every instruction-only control before proceeding. Each predetermined example counts once; replay controls are not independent samples. The interrupted segment's terminal weight hash is unavailable, so the continuation's matching start/end hashes do not establish that missing check. No training or parameter-update operation is present in the frozen evaluator. The tokenizer-boundary repair in the generalization pilot and whitespace correction before external model outcomes are documented. Source dataset terms must be checked before public redistribution; keeping local reproducibility copies does not grant redistribution rights.</p>
+<h2>8. Conclusion</h2>
+<p>Two-bank state preservation is feasible under the measured frozen-Mamba workloads, but the observed synthetic gain is explained equally well by an unfitted rule using the same hand-built extractor, and identical-decision filtering matches recorded controller outputs. Learning and two-bank state storage therefore have no isolated predictive contribution in this evidence. The conservative revision replaces silent unsupported acceptance with explicit abstention, at substantial benign-coverage cost. Embedding replay confirms the saved results and exposes measured domain calibration errors. The completed prospective screen fails clean-task competence, and the different-model annotation review leaves substantial disagreements. These outcomes do not establish useful transferable poisoning defense. The defensible contribution is a reproducible implementation and empirical account of its benefits, shortcuts, failures and unresolved validation requirements.</p>
+<h2>References</h2>
+<p>[1] Albert Gu and Tri Dao. <em>Mamba: Linear-Time Sequence Modeling with Selective State Spaces</em>. arXiv:2312.00752, 2023; revised 2024. https://arxiv.org/abs/2312.00752</p>
+<p>[2] Alexandre Le Mercier, Chris Develder, and Thomas Demeester. <em>Hidden State Poisoning Attacks against Mamba-based Language Models</em>. arXiv:2601.01972v5, 2026. https://arxiv.org/abs/2601.01972v5</p>
+<p>[3] Yupei Liu, Yuqi Jia, Runpeng Geng, Jinyuan Jia, and Neil Zhenqiang Gong. <em>Formalizing and Benchmarking Prompt Injection Attacks and Defenses</em>. 33rd USENIX Security Symposium, pp. 1831–1847, 2024. https://www.usenix.org/conference/usenixsecurity24/presentation/liu-yupei</p>
+<p>[4] Alexandre Le Mercier, Thomas Demeester, and Chris Develder. <em>CLASP: Defending Hybrid Large Language Models Against Hidden State Poisoning Attacks</em>. arXiv:2603.12206v2, 2026. https://arxiv.org/abs/2603.12206v2</p>
+<p>[5] Richard Socher, Alex Perelygin, Jean Wu, Jason Chuang, Christopher D. Manning, Andrew Ng, and Christopher Potts. <em>Recursive Deep Models for Semantic Compositionality Over a Sentiment Treebank</em>. EMNLP, pp. 1631–1642, 2013. https://aclanthology.org/D13-1170/</p>
+<p>[6] Tiago A. Almeida, J. M. G. Hidalgo, and A. Yamakami. <em>Contributions to the Study of SMS Spam Filtering: New Collection and Results</em>. ACM Symposium on Document Engineering, 2011. Dataset record and paper link: https://archive.ics.uci.edu/dataset/228/sms+spam+collection</p>
+<p>[7] William B. Dolan and Chris Brockett. <em>Automatically Constructing a Corpus of Sentential Paraphrases</em>. Third International Workshop on Paraphrasing, 2005. https://aclanthology.org/I05-5002/</p>
+<p>[8] Wenhui Wang, Furu Wei, Li Dong, Hangbo Bao, Nan Yang, and Ming Zhou. <em>MiniLM: Deep Self-Attention Distillation for Task-Agnostic Compression of Pre-Trained Transformers</em>. arXiv:2002.10957v2, 2020. https://arxiv.org/abs/2002.10957v2</p>
+<p>[9] Sentence Transformers. <em>all-MiniLM-L6-v2 model card and checkpoint</em>. Revision 1110a243fdf4706b3f48f1d95db1a4f5529b4d41; accessed October 16, 2026. https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2</p>
+<p>[10] Jingwei Yi, Yueqi Xie, Bin Zhu, Emre Kiciman, Guangzhong Sun, Xing Xie, and Fangzhao Wu. <em>Benchmarking and Defending Against Indirect Prompt Injection Attacks on Large Language Models</em>. arXiv:2312.14197v4, 2025; accepted at KDD 2025. https://arxiv.org/abs/2312.14197v4</p>
+<p>[11] xiuyul and han1997. <em>Mamba-2.8B-Zephyr model cards and Transformers conversion</em>. Original revision 85b6d9a1dd2bca5787437ba63af63f155356e113; conversion revision 99a87b5e5f211c42595df370de50910f05dc7854. https://huggingface.co/xiuyul/mamba-2.8b-zephyr ; https://huggingface.co/han1997/mamba-2.8b-zephyr-hf</p></body></html>

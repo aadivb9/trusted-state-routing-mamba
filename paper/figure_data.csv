@@ -1,0 +1,4 @@
+evaluation,clean_percent,original_attacked_percent,controller_attacked_percent
+Text-router independent (n=100),79.0,28.999999999999996,28.999999999999996
+Context-aware independent (n=100),81.0,28.000000000000004,80.0
+Abstract transfer late attack (n=32),100.0,34.375,34.375

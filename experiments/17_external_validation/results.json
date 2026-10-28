@@ -1,0 +1,60 @@
+{
+  "status": "failed",
+  "protocol_sha256": "ae24b37cba20038f4c907abdf6e97ce05c27ff76e00971574e8a357ba46f9aee",
+  "runtime_amendment_sha256": "8becb2db22359bf9920fe6fa5f0a6f032888163a56f5f8b519b3a3468a398058",
+  "model": {
+    "id": "state-spaces/mamba-2.8b-hf",
+    "revision": "96c48e0292b63f5346b6d30061af2551f7101e26",
+    "dtype": "float32",
+    "batch_size": 1
+  },
+  "instruction_only": {
+    "sst2": {
+      "response": "\nThe first thing that I noticed was the smell of the place. It was\n  like a combination of a gym and a locker room. The second thing",
+      "generated_ids": [
+        187,
+        510,
+        806,
+        2181,
+        326,
+        309,
+        8344,
+        369,
+        253,
+        13624,
+        273,
+        253,
+        1659,
+        15,
+        733,
+        369,
+        187,
+        50276,
+        3022,
+        247,
+        5019,
+        273,
+        247,
+        17409,
+        285,
+        247,
+        33703,
+        2316,
+        15,
+        380,
+        1273,
+        2181
+      ],
+      "input_tokens": 21,
+      "input_token_sha256": "f84c9fd7144f2de00e3d1e733e6cb206abbdb176b12caaaa3ff0f1db2d3f1493",
+      "source_prompt_sha256": "ed50c8723c211c39bbd4629182eec24df4f78b06885caf4a411d58adcf613fa4"
+    }
+  },
+  "development": [],
+  "final": [],
+  "gate_passed": false,
+  "backbone_before": "fcc219d9411b003465a1b1a4034b7408235844efc09f0bd658569dc3f0455bea",
+  "gpu": "Tesla T4",
+  "error": "Non-whitespace token crosses trust boundary",
+  "traceback": "Traceback (most recent call last):\n  File \"/content/mamba_audit_revision_20261022/experiments/17_external_validation/run.py\", line 56, in main\n    g=generate(r['instruction'],r['text']);strict,official=predictions(task,g['response'])\n  File \"/content/mamba_audit_revision_20261022/experiments/17_external_validation/run.py\", line 42, in generate\n    prompt,parts=chunks(instruction,text,tok)\n                 ~~~~~~^^^^^^^^^^^^^^^^^^^^^^\n  File \"/content/mamba_audit_revision_20261022/src/runtime/serialization.py\", line 15, in chunks\n    raise ValueError('Non-whitespace token crosses trust boundary')\nValueError: Non-whitespace token crosses trust boundary\n"
+}

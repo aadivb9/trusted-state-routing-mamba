@@ -1,0 +1,164 @@
+{
+  "external": {
+    "gate": {
+      "sst2": {
+        "strict_correct": 0,
+        "strict_valid": 0,
+        "input_gain": 0.0,
+        "passed": false
+      },
+      "sms_spam": {
+        "strict_correct": 0,
+        "strict_valid": 0,
+        "input_gain": 0.0,
+        "passed": false
+      },
+      "mrpc": {
+        "strict_correct": 0,
+        "strict_valid": 0,
+        "input_gain": 0.0,
+        "passed": false
+      }
+    },
+    "development_generations": 72,
+    "instruction_only_generations": 3,
+    "attack_generations": 0,
+    "published_parser_correct": {
+      "sst2": 14,
+      "sms_spam": 0,
+      "mrpc": 12
+    }
+  },
+  "annotation": {
+    "items": 32,
+    "notes": 160,
+    "note_disagreements": 47,
+    "candidate_disagreements": 5,
+    "human_review_completed": false
+  },
+  "timing": {
+    "status": "failed_cuda_out_of_memory",
+    "full_protocol_completed": false,
+    "terminal_weight_hash_available": false,
+    "warmups": 36,
+    "timed": 166,
+    "planned_timed": 240,
+    "completed_prefix_lengths": [
+      128,
+      512
+    ],
+    "partial_prefix_length": 2048,
+    "partial_rows": 6,
+    "equivalent_pairs": 80,
+    "summary": [
+      {
+        "prefix_tokens": 128,
+        "mode": "original",
+        "n": 20,
+        "median_seconds": 1.1100317574996552,
+        "p95_seconds_nearest_rank": 1.158408641999813,
+        "peak_allocated_bytes": 11285164544,
+        "peak_reserved_bytes": 11328815104
+      },
+      {
+        "prefix_tokens": 128,
+        "mode": "forced_accept",
+        "n": 20,
+        "median_seconds": 1.3467963104999399,
+        "p95_seconds_nearest_rank": 1.3926141570000254,
+        "peak_allocated_bytes": 11343769088,
+        "peak_reserved_bytes": 11421089792
+      },
+      {
+        "prefix_tokens": 128,
+        "mode": "forced_reject",
+        "n": 20,
+        "median_seconds": 1.3354850144996817,
+        "p95_seconds_nearest_rank": 1.3888220759999967,
+        "peak_allocated_bytes": 11343769088,
+        "peak_reserved_bytes": 11418992640
+      },
+      {
+        "prefix_tokens": 128,
+        "mode": "identical_decision_filtering",
+        "n": 20,
+        "median_seconds": 1.078588062000108,
+        "p95_seconds_nearest_rank": 1.1506872889995066,
+        "peak_allocated_bytes": 11271821824,
+        "peak_reserved_bytes": 11322523648
+      },
+      {
+        "prefix_tokens": 512,
+        "mode": "original",
+        "n": 20,
+        "median_seconds": 2.700445470500199,
+        "p95_seconds_nearest_rank": 2.814888617000179,
+        "peak_allocated_bytes": 11744627200,
+        "peak_reserved_bytes": 11804868608
+      },
+      {
+        "prefix_tokens": 512,
+        "mode": "forced_accept",
+        "n": 20,
+        "median_seconds": 2.936729285000183,
+        "p95_seconds_nearest_rank": 3.0568139630004225,
+        "peak_allocated_bytes": 12047347200,
+        "peak_reserved_bytes": 12113149952
+      },
+      {
+        "prefix_tokens": 512,
+        "mode": "forced_reject",
+        "n": 20,
+        "median_seconds": 2.938700605499889,
+        "p95_seconds_nearest_rank": 3.0578598129995953,
+        "peak_allocated_bytes": 12047347200,
+        "peak_reserved_bytes": 12113149952
+      },
+      {
+        "prefix_tokens": 512,
+        "mode": "identical_decision_filtering",
+        "n": 20,
+        "median_seconds": 2.6352403455002786,
+        "p95_seconds_nearest_rank": 2.709547086999919,
+        "peak_allocated_bytes": 11732136448,
+        "peak_reserved_bytes": 11798577152
+      }
+    ],
+    "paired_comparisons": [
+      {
+        "prefix_tokens": 128,
+        "candidate": "forced_accept",
+        "baseline": "original",
+        "n_pairs": 20,
+        "matched_pairs": 20,
+        "median_paired_time_ratio": 1.2116609000430072
+      },
+      {
+        "prefix_tokens": 128,
+        "candidate": "forced_reject",
+        "baseline": "identical_decision_filtering",
+        "n_pairs": 20,
+        "matched_pairs": 20,
+        "median_paired_time_ratio": 1.2338872536926693
+      },
+      {
+        "prefix_tokens": 512,
+        "candidate": "forced_accept",
+        "baseline": "original",
+        "n_pairs": 20,
+        "matched_pairs": 20,
+        "median_paired_time_ratio": 1.086469648062899
+      },
+      {
+        "prefix_tokens": 512,
+        "candidate": "forced_reject",
+        "baseline": "identical_decision_filtering",
+        "n_pairs": 20,
+        "matched_pairs": 20,
+        "median_paired_time_ratio": 1.1053286907401096
+      }
+    ],
+    "scope": "Post-failure descriptive summaries of completed shorter blocks only. The full protocol failed; no complete-run interval or terminal weight check is available."
+  },
+  "scope": "Completed failed external competence screen; different-model blinded annotation review; failed full T4 timing protocol with completed shorter blocks. No external attack efficacy or human adjudication established."
+}

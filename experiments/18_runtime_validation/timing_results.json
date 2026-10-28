@@ -1,0 +1,3683 @@
+{
+  "status": "failed",
+  "protocol_sha256": "cd107b5e85717ed9bb32bf135c621262504eb34665019b31a5b92d327dd3f85b",
+  "model": {
+    "id": "state-spaces/mamba-2.8b-hf",
+    "revision": "96c48e0292b63f5346b6d30061af2551f7101e26",
+    "dtype": "float32"
+  },
+  "measurements": [
+    {
+      "prefix_tokens": 128,
+      "mode": "identical_decision_filtering",
+      "repetition": 0,
+      "elapsed_seconds": 1.1662188680002146,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11271821824,
+      "peak_reserved_bytes": 11322523648
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "forced_reject",
+      "repetition": 0,
+      "elapsed_seconds": 1.3506438720005463,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11343769088,
+      "peak_reserved_bytes": 11418992640
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "original",
+      "repetition": 0,
+      "elapsed_seconds": 1.1306380770001851,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11284263424,
+      "peak_reserved_bytes": 11328815104
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "forced_accept",
+      "repetition": 0,
+      "elapsed_seconds": 1.3545435910000378,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11343736320,
+      "peak_reserved_bytes": 11421089792
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "forced_reject",
+      "repetition": 1,
+      "elapsed_seconds": 1.338079875999938,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11343572480,
+      "peak_reserved_bytes": 11398021120
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "original",
+      "repetition": 1,
+      "elapsed_seconds": 1.158408641999813,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11284263424,
+      "peak_reserved_bytes": 11328815104
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "identical_decision_filtering",
+      "repetition": 1,
+      "elapsed_seconds": 1.1460841449998043,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11271526912,
+      "peak_reserved_bytes": 11322523648
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "forced_accept",
+      "repetition": 1,
+      "elapsed_seconds": 1.348242420999668,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11343736320,
+      "peak_reserved_bytes": 11418992640
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "identical_decision_filtering",
+      "repetition": 2,
+      "elapsed_seconds": 1.0894986420007626,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11271821824,
+      "peak_reserved_bytes": 11322523648
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "forced_reject",
+      "repetition": 2,
+      "elapsed_seconds": 1.3508942109992859,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11343769088,
+      "peak_reserved_bytes": 11418992640
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "original",
+      "repetition": 2,
+      "elapsed_seconds": 1.1054816249998112,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11284263424,
+      "peak_reserved_bytes": 11328815104
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "forced_accept",
+      "repetition": 2,
+      "elapsed_seconds": 1.4173960830003125,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11343736320,
+      "peak_reserved_bytes": 11418992640
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "original",
+      "repetition": 3,
+      "elapsed_seconds": 1.1038900490002561,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11284263424,
+      "peak_reserved_bytes": 11328815104
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "identical_decision_filtering",
+      "repetition": 3,
+      "elapsed_seconds": 1.0558999040003982,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11271526912,
+      "peak_reserved_bytes": 11322523648
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "forced_reject",
+      "repetition": 3,
+      "elapsed_seconds": 1.3610506109998823,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11343736320,
+      "peak_reserved_bytes": 11418992640
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "forced_accept",
+      "repetition": 3,
+      "elapsed_seconds": 1.3357455180002944,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11343572480,
+      "peak_reserved_bytes": 11398021120
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "forced_accept",
+      "repetition": 4,
+      "elapsed_seconds": 1.3764895499998602,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11343572480,
+      "peak_reserved_bytes": 11398021120
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "identical_decision_filtering",
+      "repetition": 4,
+      "elapsed_seconds": 1.1060410689997298,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11271821824,
+      "peak_reserved_bytes": 11322523648
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "forced_reject",
+      "repetition": 4,
+      "elapsed_seconds": 1.3361768539998593,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11343769088,
+      "peak_reserved_bytes": 11418992640
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "original",
+      "repetition": 4,
+      "elapsed_seconds": 1.1230604180000228,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11284263424,
+      "peak_reserved_bytes": 11328815104
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "identical_decision_filtering",
+      "repetition": 5,
+      "elapsed_seconds": 1.075536657000157,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11271526912,
+      "peak_reserved_bytes": 11322523648
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "forced_accept",
+      "repetition": 5,
+      "elapsed_seconds": 1.3431849720000173,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11343736320,
+      "peak_reserved_bytes": 11418992640
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "original",
+      "repetition": 5,
+      "elapsed_seconds": 1.1697176909992777,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11284263424,
+      "peak_reserved_bytes": 11328815104
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "forced_reject",
+      "repetition": 5,
+      "elapsed_seconds": 1.359822505000011,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11343736320,
+      "peak_reserved_bytes": 11418992640
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "forced_accept",
+      "repetition": 6,
+      "elapsed_seconds": 1.326514121999935,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11343572480,
+      "peak_reserved_bytes": 11398021120
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "forced_reject",
+      "repetition": 6,
+      "elapsed_seconds": 1.3328880650005885,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11343572480,
+      "peak_reserved_bytes": 11398021120
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "original",
+      "repetition": 6,
+      "elapsed_seconds": 1.0971050039997863,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11284263424,
+      "peak_reserved_bytes": 11328815104
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "identical_decision_filtering",
+      "repetition": 6,
+      "elapsed_seconds": 1.120593086999179,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11271526912,
+      "peak_reserved_bytes": 11322523648
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "forced_reject",
+      "repetition": 7,
+      "elapsed_seconds": 1.3260575260001133,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11343736320,
+      "peak_reserved_bytes": 11418992640
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "identical_decision_filtering",
+      "repetition": 7,
+      "elapsed_seconds": 1.0592716390001442,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11271821824,
+      "peak_reserved_bytes": 11322523648
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "original",
+      "repetition": 7,
+      "elapsed_seconds": 1.104395889999978,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11285164544,
+      "peak_reserved_bytes": 11328815104
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "forced_accept",
+      "repetition": 7,
+      "elapsed_seconds": 1.3402171000007002,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11343769088,
+      "peak_reserved_bytes": 11418992640
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "forced_accept",
+      "repetition": 8,
+      "elapsed_seconds": 1.3454712100001416,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11343572480,
+      "peak_reserved_bytes": 11398021120
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "forced_reject",
+      "repetition": 8,
+      "elapsed_seconds": 1.3922825250001551,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11343572480,
+      "peak_reserved_bytes": 11398021120
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "identical_decision_filtering",
+      "repetition": 8,
+      "elapsed_seconds": 1.0673227059996861,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11271821824,
+      "peak_reserved_bytes": 11322523648
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "original",
+      "repetition": 8,
+      "elapsed_seconds": 1.1142224280001756,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11285164544,
+      "peak_reserved_bytes": 11328815104
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "forced_accept",
+      "repetition": 9,
+      "elapsed_seconds": 1.3481214109997381,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11343769088,
+      "peak_reserved_bytes": 11418992640
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "identical_decision_filtering",
+      "repetition": 9,
+      "elapsed_seconds": 1.056864189999942,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11271821824,
+      "peak_reserved_bytes": 11322523648
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "original",
+      "repetition": 9,
+      "elapsed_seconds": 1.1173180680007135,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11285164544,
+      "peak_reserved_bytes": 11328815104
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "forced_reject",
+      "repetition": 9,
+      "elapsed_seconds": 1.3797361570004796,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11343769088,
+      "peak_reserved_bytes": 11418992640
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "original",
+      "repetition": 10,
+      "elapsed_seconds": 1.1031160789998466,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11284263424,
+      "peak_reserved_bytes": 11328815104
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "forced_accept",
+      "repetition": 10,
+      "elapsed_seconds": 1.338396255000589,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11343736320,
+      "peak_reserved_bytes": 11418992640
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "forced_reject",
+      "repetition": 10,
+      "elapsed_seconds": 1.3376056050001353,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11343572480,
+      "peak_reserved_bytes": 11398021120
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "identical_decision_filtering",
+      "repetition": 10,
+      "elapsed_seconds": 1.0835486850000962,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11271821824,
+      "peak_reserved_bytes": 11322523648
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "identical_decision_filtering",
+      "repetition": 11,
+      "elapsed_seconds": 1.1506872889995066,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11271821824,
+      "peak_reserved_bytes": 11322523648
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "forced_reject",
+      "repetition": 11,
+      "elapsed_seconds": 1.3262213190000693,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11343769088,
+      "peak_reserved_bytes": 11418992640
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "forced_accept",
+      "repetition": 11,
+      "elapsed_seconds": 1.3400383890002558,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11343572480,
+      "peak_reserved_bytes": 11398021120
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "original",
+      "repetition": 11,
+      "elapsed_seconds": 1.118585334999807,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11284263424,
+      "peak_reserved_bytes": 11328815104
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "forced_reject",
+      "repetition": 12,
+      "elapsed_seconds": 1.322699061000094,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11343736320,
+      "peak_reserved_bytes": 11418992640
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "forced_accept",
+      "repetition": 12,
+      "elapsed_seconds": 1.3721582809994288,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11343572480,
+      "peak_reserved_bytes": 11398021120
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "identical_decision_filtering",
+      "repetition": 12,
+      "elapsed_seconds": 1.075429713999256,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11271821824,
+      "peak_reserved_bytes": 11322523648
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "original",
+      "repetition": 12,
+      "elapsed_seconds": 1.108786866999253,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11285164544,
+      "peak_reserved_bytes": 11328815104
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "identical_decision_filtering",
+      "repetition": 13,
+      "elapsed_seconds": 1.0637153550005678,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11271821824,
+      "peak_reserved_bytes": 11322523648
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "forced_reject",
+      "repetition": 13,
+      "elapsed_seconds": 1.334646555999825,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11343769088,
+      "peak_reserved_bytes": 11418992640
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "original",
+      "repetition": 13,
+      "elapsed_seconds": 1.1019122039997455,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11284263424,
+      "peak_reserved_bytes": 11328815104
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "forced_accept",
+      "repetition": 13,
+      "elapsed_seconds": 1.3861764020002738,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11343736320,
+      "peak_reserved_bytes": 11418992640
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "identical_decision_filtering",
+      "repetition": 14,
+      "elapsed_seconds": 1.0861027000000831,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11271821824,
+      "peak_reserved_bytes": 11322523648
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "forced_accept",
+      "repetition": 14,
+      "elapsed_seconds": 1.3289213389998622,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11343769088,
+      "peak_reserved_bytes": 11418992640
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "original",
+      "repetition": 14,
+      "elapsed_seconds": 1.1048174859997744,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11284263424,
+      "peak_reserved_bytes": 11328815104
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "forced_reject",
+      "repetition": 14,
+      "elapsed_seconds": 1.325471897999705,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11343736320,
+      "peak_reserved_bytes": 11418992640
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "identical_decision_filtering",
+      "repetition": 15,
+      "elapsed_seconds": 1.078854393000256,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11271821824,
+      "peak_reserved_bytes": 11322523648
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "forced_reject",
+      "repetition": 15,
+      "elapsed_seconds": 1.33055871400029,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11343769088,
+      "peak_reserved_bytes": 11418992640
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "original",
+      "repetition": 15,
+      "elapsed_seconds": 1.1112766480000573,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11284263424,
+      "peak_reserved_bytes": 11328815104
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "forced_accept",
+      "repetition": 15,
+      "elapsed_seconds": 1.3640671789999033,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11343736320,
+      "peak_reserved_bytes": 11418992640
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "forced_reject",
+      "repetition": 16,
+      "elapsed_seconds": 1.3295382820006125,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11343572480,
+      "peak_reserved_bytes": 11398021120
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "identical_decision_filtering",
+      "repetition": 16,
+      "elapsed_seconds": 1.0692803379997713,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11271821824,
+      "peak_reserved_bytes": 11322523648
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "forced_accept",
+      "repetition": 16,
+      "elapsed_seconds": 1.3926141570000254,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11343769088,
+      "peak_reserved_bytes": 11418992640
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "original",
+      "repetition": 16,
+      "elapsed_seconds": 1.1458600390005813,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11284263424,
+      "peak_reserved_bytes": 11328815104
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "forced_reject",
+      "repetition": 17,
+      "elapsed_seconds": 1.3347931749995041,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11343736320,
+      "peak_reserved_bytes": 11418992640
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "original",
+      "repetition": 17,
+      "elapsed_seconds": 1.1300140919993282,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11284263424,
+      "peak_reserved_bytes": 11328815104
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "forced_accept",
+      "repetition": 17,
+      "elapsed_seconds": 1.3308940649994838,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11343736320,
+      "peak_reserved_bytes": 11418992640
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "identical_decision_filtering",
+      "repetition": 17,
+      "elapsed_seconds": 1.1377420979997623,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11271821824,
+      "peak_reserved_bytes": 11322523648
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "forced_reject",
+      "repetition": 18,
+      "elapsed_seconds": 1.3888220759999967,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11343769088,
+      "peak_reserved_bytes": 11418992640
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "identical_decision_filtering",
+      "repetition": 18,
+      "elapsed_seconds": 1.07832173099996,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11271821824,
+      "peak_reserved_bytes": 11322523648
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "forced_accept",
+      "repetition": 18,
+      "elapsed_seconds": 1.3422118049993514,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11343769088,
+      "peak_reserved_bytes": 11418992640
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "original",
+      "repetition": 18,
+      "elapsed_seconds": 1.0968626349995247,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11284263424,
+      "peak_reserved_bytes": 11328815104
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "forced_reject",
+      "repetition": 19,
+      "elapsed_seconds": 1.3207276510001975,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11343736320,
+      "peak_reserved_bytes": 11418992640
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "forced_accept",
+      "repetition": 19,
+      "elapsed_seconds": 1.3747348779997992,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11343572480,
+      "peak_reserved_bytes": 11398021120
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "original",
+      "repetition": 19,
+      "elapsed_seconds": 1.0896062159999929,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11284263424,
+      "peak_reserved_bytes": 11328815104
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "identical_decision_filtering",
+      "repetition": 19,
+      "elapsed_seconds": 1.0754944159998558,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11271526912,
+      "peak_reserved_bytes": 11322523648
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "forced_accept",
+      "repetition": 0,
+      "elapsed_seconds": 2.908711466000568,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 12047347200,
+      "peak_reserved_bytes": 12113149952
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "forced_reject",
+      "repetition": 0,
+      "elapsed_seconds": 3.0578598129995953,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 12047347200,
+      "peak_reserved_bytes": 12102664192
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "identical_decision_filtering",
+      "repetition": 0,
+      "elapsed_seconds": 2.6470516879999195,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11731890688,
+      "peak_reserved_bytes": 11785994240
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "original",
+      "repetition": 0,
+      "elapsed_seconds": 2.676543223000408,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11744627200,
+      "peak_reserved_bytes": 11804868608
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "forced_accept",
+      "repetition": 1,
+      "elapsed_seconds": 2.933120126999711,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 12047347200,
+      "peak_reserved_bytes": 12113149952
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "original",
+      "repetition": 1,
+      "elapsed_seconds": 2.7024986579999677,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11744627200,
+      "peak_reserved_bytes": 11792285696
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "identical_decision_filtering",
+      "repetition": 1,
+      "elapsed_seconds": 2.6360312050001085,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11732136448,
+      "peak_reserved_bytes": 11785994240
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "forced_reject",
+      "repetition": 1,
+      "elapsed_seconds": 2.936494601999584,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 12047347200,
+      "peak_reserved_bytes": 12113149952
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "forced_accept",
+      "repetition": 2,
+      "elapsed_seconds": 2.9788428609999755,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 12047347200,
+      "peak_reserved_bytes": 12102664192
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "identical_decision_filtering",
+      "repetition": 2,
+      "elapsed_seconds": 2.6886370210004316,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11731890688,
+      "peak_reserved_bytes": 11785994240
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "forced_reject",
+      "repetition": 2,
+      "elapsed_seconds": 2.907494910999958,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 12047347200,
+      "peak_reserved_bytes": 12113149952
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "original",
+      "repetition": 2,
+      "elapsed_seconds": 2.645804521000173,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11744627200,
+      "peak_reserved_bytes": 11792285696
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "original",
+      "repetition": 3,
+      "elapsed_seconds": 2.7139570429999367,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11744627200,
+      "peak_reserved_bytes": 11792285696
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "forced_accept",
+      "repetition": 3,
+      "elapsed_seconds": 2.9387557620002553,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 12047347200,
+      "peak_reserved_bytes": 12113149952
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "forced_reject",
+      "repetition": 3,
+      "elapsed_seconds": 2.935610173999521,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 12047347200,
+      "peak_reserved_bytes": 12102664192
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "identical_decision_filtering",
+      "repetition": 3,
+      "elapsed_seconds": 2.7073743230002947,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11731890688,
+      "peak_reserved_bytes": 11785994240
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "forced_reject",
+      "repetition": 4,
+      "elapsed_seconds": 2.8604307499999777,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 12047347200,
+      "peak_reserved_bytes": 12113149952
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "forced_accept",
+      "repetition": 4,
+      "elapsed_seconds": 2.9044771859998946,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 12047347200,
+      "peak_reserved_bytes": 12113149952
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "original",
+      "repetition": 4,
+      "elapsed_seconds": 2.7598238800001127,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11744627200,
+      "peak_reserved_bytes": 11792285696
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "identical_decision_filtering",
+      "repetition": 4,
+      "elapsed_seconds": 2.609954678999202,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11732136448,
+      "peak_reserved_bytes": 11785994240
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "forced_accept",
+      "repetition": 5,
+      "elapsed_seconds": 2.94551272300032,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 12047347200,
+      "peak_reserved_bytes": 12113149952
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "original",
+      "repetition": 5,
+      "elapsed_seconds": 2.7372025620006752,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11744627200,
+      "peak_reserved_bytes": 11792285696
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "identical_decision_filtering",
+      "repetition": 5,
+      "elapsed_seconds": 2.6696014089993696,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11732136448,
+      "peak_reserved_bytes": 11785994240
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "forced_reject",
+      "repetition": 5,
+      "elapsed_seconds": 2.916968647000431,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 12047347200,
+      "peak_reserved_bytes": 12113149952
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "original",
+      "repetition": 6,
+      "elapsed_seconds": 2.7452869600001577,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11744627200,
+      "peak_reserved_bytes": 11792285696
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "forced_accept",
+      "repetition": 6,
+      "elapsed_seconds": 2.928632142000424,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 12047347200,
+      "peak_reserved_bytes": 12113149952
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "identical_decision_filtering",
+      "repetition": 6,
+      "elapsed_seconds": 2.6028982739999265,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11731890688,
+      "peak_reserved_bytes": 11785994240
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "forced_reject",
+      "repetition": 6,
+      "elapsed_seconds": 3.03369702100008,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 12047347200,
+      "peak_reserved_bytes": 12113149952
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "original",
+      "repetition": 7,
+      "elapsed_seconds": 2.6590684560005684,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11744627200,
+      "peak_reserved_bytes": 11792285696
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "forced_accept",
+      "repetition": 7,
+      "elapsed_seconds": 2.9137493240004915,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 12047347200,
+      "peak_reserved_bytes": 12113149952
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "identical_decision_filtering",
+      "repetition": 7,
+      "elapsed_seconds": 2.709547086999919,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11731890688,
+      "peak_reserved_bytes": 11785994240
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "forced_reject",
+      "repetition": 7,
+      "elapsed_seconds": 2.9731751079998503,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 12047347200,
+      "peak_reserved_bytes": 12113149952
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "original",
+      "repetition": 8,
+      "elapsed_seconds": 2.680904052000187,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11744627200,
+      "peak_reserved_bytes": 11792285696
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "forced_accept",
+      "repetition": 8,
+      "elapsed_seconds": 3.0568139630004225,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 12047347200,
+      "peak_reserved_bytes": 12113149952
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "identical_decision_filtering",
+      "repetition": 8,
+      "elapsed_seconds": 2.6578851169997506,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11731890688,
+      "peak_reserved_bytes": 11785994240
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "forced_reject",
+      "repetition": 8,
+      "elapsed_seconds": 2.9409066090001943,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 12047347200,
+      "peak_reserved_bytes": 12113149952
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "original",
+      "repetition": 9,
+      "elapsed_seconds": 2.814888617000179,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11744627200,
+      "peak_reserved_bytes": 11792285696
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "forced_accept",
+      "repetition": 9,
+      "elapsed_seconds": 2.9601414039998417,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 12047347200,
+      "peak_reserved_bytes": 12113149952
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "identical_decision_filtering",
+      "repetition": 9,
+      "elapsed_seconds": 2.634449486000449,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11731890688,
+      "peak_reserved_bytes": 11785994240
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "forced_reject",
+      "repetition": 9,
+      "elapsed_seconds": 2.9417506259997026,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 12047347200,
+      "peak_reserved_bytes": 12113149952
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "identical_decision_filtering",
+      "repetition": 10,
+      "elapsed_seconds": 2.6155079990003287,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11731890688,
+      "peak_reserved_bytes": 11785994240
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "forced_reject",
+      "repetition": 10,
+      "elapsed_seconds": 2.8501252309997653,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 12047347200,
+      "peak_reserved_bytes": 12113149952
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "original",
+      "repetition": 10,
+      "elapsed_seconds": 2.6475169470004403,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11744627200,
+      "peak_reserved_bytes": 11804868608
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "forced_accept",
+      "repetition": 10,
+      "elapsed_seconds": 2.9082003299999997,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 12047347200,
+      "peak_reserved_bytes": 12113149952
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "original",
+      "repetition": 11,
+      "elapsed_seconds": 2.661564133999491,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11744627200,
+      "peak_reserved_bytes": 11792285696
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "forced_accept",
+      "repetition": 11,
+      "elapsed_seconds": 2.9188000320000356,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 12047347200,
+      "peak_reserved_bytes": 12113149952
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "forced_reject",
+      "repetition": 11,
+      "elapsed_seconds": 2.8429786910000985,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 12047347200,
+      "peak_reserved_bytes": 12102664192
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "identical_decision_filtering",
+      "repetition": 11,
+      "elapsed_seconds": 2.5805311100002655,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11731890688,
+      "peak_reserved_bytes": 11798577152
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "forced_accept",
+      "repetition": 12,
+      "elapsed_seconds": 2.9719548110006144,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 12047347200,
+      "peak_reserved_bytes": 12113149952
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "forced_reject",
+      "repetition": 12,
+      "elapsed_seconds": 2.9716872630006037,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 12047347200,
+      "peak_reserved_bytes": 12102664192
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "original",
+      "repetition": 12,
+      "elapsed_seconds": 2.7361091230004604,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11744627200,
+      "peak_reserved_bytes": 11792285696
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "identical_decision_filtering",
+      "repetition": 12,
+      "elapsed_seconds": 2.607299301000239,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11732136448,
+      "peak_reserved_bytes": 11785994240
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "identical_decision_filtering",
+      "repetition": 13,
+      "elapsed_seconds": 2.6056954539999424,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11732136448,
+      "peak_reserved_bytes": 11785994240
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "forced_accept",
+      "repetition": 13,
+      "elapsed_seconds": 2.951200571999834,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 12047347200,
+      "peak_reserved_bytes": 12113149952
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "forced_reject",
+      "repetition": 13,
+      "elapsed_seconds": 2.8620078020003348,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 12047347200,
+      "peak_reserved_bytes": 12113149952
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "original",
+      "repetition": 13,
+      "elapsed_seconds": 2.660942433000855,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11744627200,
+      "peak_reserved_bytes": 11792285696
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "forced_accept",
+      "repetition": 14,
+      "elapsed_seconds": 2.934702808000111,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 12047347200,
+      "peak_reserved_bytes": 12113149952
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "original",
+      "repetition": 14,
+      "elapsed_seconds": 2.6652172519998203,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11744627200,
+      "peak_reserved_bytes": 11792285696
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "identical_decision_filtering",
+      "repetition": 14,
+      "elapsed_seconds": 2.6053293269997084,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11732136448,
+      "peak_reserved_bytes": 11785994240
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "forced_reject",
+      "repetition": 14,
+      "elapsed_seconds": 2.9080690159998994,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 12047347200,
+      "peak_reserved_bytes": 12113149952
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "identical_decision_filtering",
+      "repetition": 15,
+      "elapsed_seconds": 2.624116574999789,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11732136448,
+      "peak_reserved_bytes": 11785994240
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "forced_accept",
+      "repetition": 15,
+      "elapsed_seconds": 2.8515724870003396,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 12047347200,
+      "peak_reserved_bytes": 12113149952
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "forced_reject",
+      "repetition": 15,
+      "elapsed_seconds": 2.987539579999975,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 12047347200,
+      "peak_reserved_bytes": 12113149952
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "original",
+      "repetition": 15,
+      "elapsed_seconds": 2.676054517999546,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11744627200,
+      "peak_reserved_bytes": 11792285696
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "forced_accept",
+      "repetition": 16,
+      "elapsed_seconds": 2.8701059240001996,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 12047347200,
+      "peak_reserved_bytes": 12113149952
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "original",
+      "repetition": 16,
+      "elapsed_seconds": 2.7291724019996764,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11744627200,
+      "peak_reserved_bytes": 11792285696
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "forced_reject",
+      "repetition": 16,
+      "elapsed_seconds": 2.8604148660006103,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 12047347200,
+      "peak_reserved_bytes": 12113149952
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "identical_decision_filtering",
+      "repetition": 16,
+      "elapsed_seconds": 2.595351146000212,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11732136448,
+      "peak_reserved_bytes": 11785994240
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "forced_reject",
+      "repetition": 17,
+      "elapsed_seconds": 2.943625155000518,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 12047347200,
+      "peak_reserved_bytes": 12113149952
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "original",
+      "repetition": 17,
+      "elapsed_seconds": 2.7258236130001023,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11744627200,
+      "peak_reserved_bytes": 11792285696
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "identical_decision_filtering",
+      "repetition": 17,
+      "elapsed_seconds": 2.665907777999564,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11732136448,
+      "peak_reserved_bytes": 11785994240
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "forced_accept",
+      "repetition": 17,
+      "elapsed_seconds": 3.075438775999828,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 12047347200,
+      "peak_reserved_bytes": 12113149952
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "identical_decision_filtering",
+      "repetition": 18,
+      "elapsed_seconds": 2.7576311110005918,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11732136448,
+      "peak_reserved_bytes": 11785994240
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "forced_accept",
+      "repetition": 18,
+      "elapsed_seconds": 2.9789185379995615,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 12047347200,
+      "peak_reserved_bytes": 12113149952
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "forced_reject",
+      "repetition": 18,
+      "elapsed_seconds": 3.0635381029997006,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 12047347200,
+      "peak_reserved_bytes": 12113149952
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "original",
+      "repetition": 18,
+      "elapsed_seconds": 2.8168648370001392,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11744627200,
+      "peak_reserved_bytes": 11792285696
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "forced_accept",
+      "repetition": 19,
+      "elapsed_seconds": 3.0207881850001286,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 12047347200,
+      "peak_reserved_bytes": 12113149952
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "identical_decision_filtering",
+      "repetition": 19,
+      "elapsed_seconds": 2.6627930300001026,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11732136448,
+      "peak_reserved_bytes": 11785994240
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "original",
+      "repetition": 19,
+      "elapsed_seconds": 2.6983922830004303,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11744627200,
+      "peak_reserved_bytes": 11792285696
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "forced_reject",
+      "repetition": 19,
+      "elapsed_seconds": 2.9935563659992113,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 12047347200,
+      "peak_reserved_bytes": 12113149952
+    },
+    {
+      "prefix_tokens": 2048,
+      "mode": "original",
+      "repetition": 0,
+      "elapsed_seconds": 11.152094750999822,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 13586266624,
+      "peak_reserved_bytes": 13675528192
+    },
+    {
+      "prefix_tokens": 2048,
+      "mode": "identical_decision_filtering",
+      "repetition": 0,
+      "elapsed_seconds": 10.993906075999803,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 13573618176,
+      "peak_reserved_bytes": 13667139584
+    },
+    {
+      "prefix_tokens": 2048,
+      "mode": "forced_accept",
+      "repetition": 0,
+      "elapsed_seconds": 11.08785022200027,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 14864117248,
+      "peak_reserved_bytes": 14935916544
+    },
+    {
+      "prefix_tokens": 2048,
+      "mode": "forced_reject",
+      "repetition": 0,
+      "elapsed_seconds": 11.119732721999753,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 14863953408,
+      "peak_reserved_bytes": 14935916544
+    },
+    {
+      "prefix_tokens": 2048,
+      "mode": "forced_accept",
+      "repetition": 1,
+      "elapsed_seconds": 11.148522800999672,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 14863953408,
+      "peak_reserved_bytes": 14935916544
+    },
+    {
+      "prefix_tokens": 2048,
+      "mode": "identical_decision_filtering",
+      "repetition": 1,
+      "elapsed_seconds": 10.954356530999576,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 13573536256,
+      "peak_reserved_bytes": 13667139584
+    }
+  ],
+  "warmups": [
+    {
+      "prefix_tokens": 128,
+      "mode": "original",
+      "repetition": 0,
+      "elapsed_seconds": 1.131526883999868,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11284262400,
+      "peak_reserved_bytes": 11303649280
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "forced_accept",
+      "repetition": 0,
+      "elapsed_seconds": 53.42395118500008,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11343571456,
+      "peak_reserved_bytes": 11372855296
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "identical_decision_filtering",
+      "repetition": 0,
+      "elapsed_seconds": 1.2065159389994733,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11271821824,
+      "peak_reserved_bytes": 11322523648
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "forced_reject",
+      "repetition": 0,
+      "elapsed_seconds": 1.3469253829998706,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11343769088,
+      "peak_reserved_bytes": 11418992640
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "identical_decision_filtering",
+      "repetition": 1,
+      "elapsed_seconds": 1.1013613239992992,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11271821824,
+      "peak_reserved_bytes": 11322523648
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "forced_reject",
+      "repetition": 1,
+      "elapsed_seconds": 1.341408494999996,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11343769088,
+      "peak_reserved_bytes": 11418992640
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "original",
+      "repetition": 1,
+      "elapsed_seconds": 1.1284466879997126,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11284263424,
+      "peak_reserved_bytes": 11328815104
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "forced_accept",
+      "repetition": 1,
+      "elapsed_seconds": 1.3692744999998467,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11343736320,
+      "peak_reserved_bytes": 11418992640
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "identical_decision_filtering",
+      "repetition": 2,
+      "elapsed_seconds": 1.086997680999957,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11271821824,
+      "peak_reserved_bytes": 11322523648
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "forced_reject",
+      "repetition": 2,
+      "elapsed_seconds": 1.3996366569999736,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11343769088,
+      "peak_reserved_bytes": 11418992640
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "original",
+      "repetition": 2,
+      "elapsed_seconds": 1.1154827310001565,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11284263424,
+      "peak_reserved_bytes": 11328815104
+    },
+    {
+      "prefix_tokens": 128,
+      "mode": "forced_accept",
+      "repetition": 2,
+      "elapsed_seconds": 1.360351848999926,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11343736320,
+      "peak_reserved_bytes": 11421089792
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "forced_accept",
+      "repetition": 0,
+      "elapsed_seconds": 2.9507627550001416,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 12047347200,
+      "peak_reserved_bytes": 12115247104
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "forced_reject",
+      "repetition": 0,
+      "elapsed_seconds": 2.9972953940005027,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 12047347200,
+      "peak_reserved_bytes": 12102664192
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "identical_decision_filtering",
+      "repetition": 0,
+      "elapsed_seconds": 2.6231418320003286,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11731890688,
+      "peak_reserved_bytes": 11785994240
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "original",
+      "repetition": 0,
+      "elapsed_seconds": 2.837639551999928,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11744627200,
+      "peak_reserved_bytes": 11804868608
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "original",
+      "repetition": 1,
+      "elapsed_seconds": 2.9533218120004676,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11744627200,
+      "peak_reserved_bytes": 11804868608
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "forced_reject",
+      "repetition": 1,
+      "elapsed_seconds": 2.8983535699999265,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 12047347200,
+      "peak_reserved_bytes": 12113149952
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "identical_decision_filtering",
+      "repetition": 1,
+      "elapsed_seconds": 2.603260761999991,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11731890688,
+      "peak_reserved_bytes": 11785994240
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "forced_accept",
+      "repetition": 1,
+      "elapsed_seconds": 3.010263123999721,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 12047347200,
+      "peak_reserved_bytes": 12113149952
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "identical_decision_filtering",
+      "repetition": 2,
+      "elapsed_seconds": 2.663556196999707,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11731890688,
+      "peak_reserved_bytes": 11785994240
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "forced_reject",
+      "repetition": 2,
+      "elapsed_seconds": 2.914696933000414,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 12047347200,
+      "peak_reserved_bytes": 12113149952
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "forced_accept",
+      "repetition": 2,
+      "elapsed_seconds": 2.9874152219999814,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 12047347200,
+      "peak_reserved_bytes": 12102664192
+    },
+    {
+      "prefix_tokens": 512,
+      "mode": "original",
+      "repetition": 2,
+      "elapsed_seconds": 2.6604631499994866,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 11744627200,
+      "peak_reserved_bytes": 11792285696
+    },
+    {
+      "prefix_tokens": 2048,
+      "mode": "forced_reject",
+      "repetition": 0,
+      "elapsed_seconds": 11.333795079999618,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 14863953408,
+      "peak_reserved_bytes": 14956888064
+    },
+    {
+      "prefix_tokens": 2048,
+      "mode": "original",
+      "repetition": 0,
+      "elapsed_seconds": 11.228681935000168,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 13586266624,
+      "peak_reserved_bytes": 13675528192
+    },
+    {
+      "prefix_tokens": 2048,
+      "mode": "forced_accept",
+      "repetition": 0,
+      "elapsed_seconds": 11.355292938000275,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 14864117248,
+      "peak_reserved_bytes": 14935916544
+    },
+    {
+      "prefix_tokens": 2048,
+      "mode": "identical_decision_filtering",
+      "repetition": 0,
+      "elapsed_seconds": 11.051099283999974,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 13573536256,
+      "peak_reserved_bytes": 13667139584
+    },
+    {
+      "prefix_tokens": 2048,
+      "mode": "forced_accept",
+      "repetition": 1,
+      "elapsed_seconds": 11.225464103999911,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 14864035328,
+      "peak_reserved_bytes": 14935916544
+    },
+    {
+      "prefix_tokens": 2048,
+      "mode": "identical_decision_filtering",
+      "repetition": 1,
+      "elapsed_seconds": 11.1654394520001,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 13573536256,
+      "peak_reserved_bytes": 13667139584
+    },
+    {
+      "prefix_tokens": 2048,
+      "mode": "original",
+      "repetition": 1,
+      "elapsed_seconds": 11.077572721000251,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 13586266624,
+      "peak_reserved_bytes": 13698596864
+    },
+    {
+      "prefix_tokens": 2048,
+      "mode": "forced_reject",
+      "repetition": 1,
+      "elapsed_seconds": 11.391280128999824,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 14864035328,
+      "peak_reserved_bytes": 14935916544
+    },
+    {
+      "prefix_tokens": 2048,
+      "mode": "identical_decision_filtering",
+      "repetition": 2,
+      "elapsed_seconds": 11.046545979000257,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 13573536256,
+      "peak_reserved_bytes": 13667139584
+    },
+    {
+      "prefix_tokens": 2048,
+      "mode": "forced_accept",
+      "repetition": 2,
+      "elapsed_seconds": 11.299857461999636,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 14864035328,
+      "peak_reserved_bytes": 14935916544
+    },
+    {
+      "prefix_tokens": 2048,
+      "mode": "forced_reject",
+      "repetition": 2,
+      "elapsed_seconds": 11.370080368000345,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 14863953408,
+      "peak_reserved_bytes": 14935916544
+    },
+    {
+      "prefix_tokens": 2048,
+      "mode": "original",
+      "repetition": 2,
+      "elapsed_seconds": 11.13562443400042,
+      "generated_tokens": [
+        187,
+        34,
+        2561,
+        2285,
+        5421,
+        849,
+        8249,
+        1491
+      ],
+      "peak_allocated_bytes": 13586266624,
+      "peak_reserved_bytes": 13675528192
+    }
+  ],
+  "scope": "Forced routing decisions, fixed synthetic text, batch one on one T4. Full path includes prefill, speculative state/copy/selection and generation; excludes model loading, Python garbage collection and allocator cache clearing. No router cost or attack efficacy is measured. No universal latency or memory claim.",
+  "versions": {
+    "torch": "2.11.0+cu130",
+    "transformers": "5.18.0",
+    "accelerate": "1.15.0",
+    "huggingface-hub": "1.33.0",
+    "tokenizers": "0.23.3"
+  },
+  "gpu": "Tesla T4",
+  "gpu_total_bytes": 15637086208,
+  "backbone_before": "fcc219d9411b003465a1b1a4034b7408235844efc09f0bd658569dc3f0455bea",
+  "parameter_dtypes": [
+    "torch.float32"
+  ],
+  "cache_checks": {
+    "gpu": "Tesla T4",
+    "state_tensors": 128,
+    "separate_storage": true,
+    "trusted_unchanged": true,
+    "restore_matches": true,
+    "continuation_max_logit_error": 2.384185791015625e-05,
+    "generation_cache_handoff": true,
+    "chunk_vs_token_logit_error": 2.288818359375e-05,
+    "backbone_parameters": 2768345600,
+    "backbone_trainable_parameters": 0,
+    "extractor_sha256": "e1ac82ae8ab11b35613396eb8fd34f3b4b987343cd470da7e52e7edccfb99e48"
+  },
+  "workload_token_hashes": {
+    "filler": "0f05103c64cd1d1f68894d6ff05e34b3dd2780321258d10c3fdd1eacbd96ab5c",
+    "span": "a8f7ac656bc859eed64a8ab3c93f1e73e55e8f4443e54fa9721a730ad54b51ff",
+    "question": "568d3eb12db281897d23100053cf5e07aec356f8f0cdf058859eb4f516a695d8"
+  },
+  "error": "CUDA out of memory. Tried to allocate 40.00 MiB. GPU 0 has a total capacity of 14.56 GiB of which 37.81 MiB is free. Including non-PyTorch memory, this process has 14.52 GiB memory in use. Of the allocated memory 13.83 GiB is allocated by PyTorch, with 22.00 MiB allocated in private pools (e.g., CUDA Graphs), and 46.55 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)",
+  "traceback": "Traceback (most recent call last):\n  File \"/content/mamba_audit_revision_20261022/experiments/18_runtime_validation/run_timing.py\", line 156, in main\n    row = measure(filler[:, :length], mode, repetition)\n  File \"/content/mamba_audit_revision_20261022/experiments/18_runtime_validation/run_timing.py\", line 127, in measure\n    trusted = state.capture(prefix)['cache']\n              ~~~~~~~~~~~~~^^^^^^^^\n  File \"/content/mamba_audit_revision_20261022/archive/sealed_workspace/dual_state_mamba.py\", line 610, in capture\n    result = extractor.extract_states_at_position(\n        bundle, tokenizer.decode(ids[0]), \"dual_state\", \"frozen\", SEED, 1, \"trusted_boundary\")\n  File \"<HiSPA extractor: cache API compatibility adapter>\", line 255, in extract_states_at_position\n  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1779, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1790, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/transformers/models/mamba/modeling_mamba.py\", line 776, in forward\n    mamba_outputs = self.backbone(\n        input_ids,\n    ...<5 lines>...\n        attention_mask=attention_mask,\n    )\n  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1779, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1790, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/transformers/models/mamba/modeling_mamba.py\", line 678, in forward\n    hidden_states = mixer_block(\n        hidden_states,\n        cache_params=cache_params,\n        attention_mask=attention_mask,\n    )\n  File \"/usr/local/lib/python3.13/dist-packages/transformers/modeling_layers.py\", line 110, in __call__\n    return super().__call__(*args, **kwargs)\n           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1779, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1790, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/transformers/models/mamba/modeling_mamba.py\", line 525, in forward\n    hidden_states = self.mixer(hidden_states, cache_params=cache_params, attention_mask=attention_mask)\n  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1779, in _wrapped_call_impl\n    return self._call_impl(*args, **kwargs)\n           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.13/dist-packages/torch/nn/modules/module.py\", line 1790, in _call_impl\n    return forward_call(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/transformers/integrations/accelerate.py\", line 1010, in wrapped\n    output = forward_func(self, *args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/transformers/models/mamba/modeling_mamba.py\", line 458, in forward\n    scan_result = mamba_selective_scan(\n        hidden_states_B_C.transpose(1, 2),\n    ...<10 lines>...\n        use_associative_scan=self.use_associative_scan,\n    )\n  File \"/content/mamba_audit_revision_20261022/archive/sealed_workspace/dual_state_mamba.py\", line 491, in scan_with_initial\n    result = original_scan(hidden_states, dt, A, B, C, *args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/transformers/integrations/hub_kernels.py\", line 1040, in wrapped\n    return implementation(*args, **kwargs)\n  File \"/usr/local/lib/python3.13/dist-packages/transformers/models/mamba/modeling_mamba.py\", line 270, in mamba_selective_scan\n    scan_output = scan_output + hidden_states * D[None, :, None]\n                  ~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\ntorch.OutOfMemoryError: CUDA out of memory. Tried to allocate 40.00 MiB. GPU 0 has a total capacity of 14.56 GiB of which 37.81 MiB is free. Including non-PyTorch memory, this process has 14.52 GiB memory in use. Of the allocated memory 13.83 GiB is allocated by PyTorch, with 22.00 MiB allocated in private pools (e.g., CUDA Graphs), and 46.55 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)\n"
+}

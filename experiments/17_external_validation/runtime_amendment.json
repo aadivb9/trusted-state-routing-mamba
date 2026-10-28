@@ -1,0 +1,10 @@
+{
+  "date": "2026-10-22",
+  "reason": "Before any new GPU outcome: stream weights directly to CUDA, record the correct checkpoint identity, and share canonical token filtering with cache selection so whitespace retokenization cannot invalidate the identical-input control. Data, prompts, scores, gate, router and thresholds are unchanged.",
+  "original_protocol_sha256": "ae24b37cba20038f4c907abdf6e97ce05c27ff76e00971574e8a357ba46f9aee",
+  "files": {
+    "experiments/17_external_validation/run.py": "1a6f8239e79151e4207991ea4f77e53f85ef095c457d7a11ae80ac5a2e3fc2fe",
+    "src/runtime/cuda_models.py": "43a3014506949b986b06f69bf8a8055e615e591ce8403c3a1d4fdccae00adf4b",
+    "src/runtime/serialization.py": "afd6be70fe9638ddfe317ed0c291e7b8e308ff3a34993bf5878ab525cbe051f8"
+  }
+}

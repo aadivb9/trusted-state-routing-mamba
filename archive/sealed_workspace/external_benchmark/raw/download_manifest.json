@@ -1,0 +1,32 @@
+[
+  {
+    "file": "sst2.zip",
+    "url": "https://dl.fbaipublicfiles.com/glue/data/SST-2.zip",
+    "bytes": 7439277,
+    "sha256": "d67e16fb55739c1b32cdce9877596db1c127dc322d93c082281f64057c16deaa"
+  },
+  {
+    "file": "sms_spam.zip",
+    "url": "https://archive.ics.uci.edu/static/public/228/sms+spam+collection.zip",
+    "bytes": 203415,
+    "sha256": "1587ea43e58e82b14ff1f5425c88e17f8496bfcdb67a583dbff9eefaf9963ce3"
+  },
+  {
+    "file": "mrpc_train.tsv",
+    "url": "https://dl.fbaipublicfiles.com/senteval/senteval_data/msr_paraphrase_train.txt",
+    "bytes": 1047044,
+    "sha256": "60a9b09084528f0673eedee2b69cb941920f0b8cd0eeccefc464a98768457f89"
+  },
+  {
+    "file": "mrpc_test.tsv",
+    "url": "https://dl.fbaipublicfiles.com/senteval/senteval_data/msr_paraphrase_test.txt",
+    "bytes": 441275,
+    "sha256": "a04e271090879aaba6423d65b94950c089298587d9c084bf9cd7439bd785f784"
+  },
+  {
+    "file": "mrpc_dev_ids.tsv",
+    "url": "https://dl.fbaipublicfiles.com/glue/data/mrpc_dev_ids.tsv",
+    "bytes": 6222,
+    "sha256": "971d7767d81b997fd9060ade0ec23c4fc31cbb226a55d1bd4a1bac474eb81dc7"
+  }
+]

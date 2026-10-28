@@ -1,0 +1,13 @@
+{
+  "scanner": "detect-secrets",
+  "version": "1.5.0",
+  "network_secret_verification": false,
+  "candidate_findings_reviewed": 505,
+  "hex_findings": 502,
+  "hex_disposition": "502 exact 40/64-character provenance hashes, checkpoint revisions and digests; candidate hashes matched to the flagged values.",
+  "keyword_findings": 3,
+  "keyword_disposition": "Three materialized copies of the upstream Open-Prompt-Injection secret_data benchmark constant, not service credentials.",
+  "additional_credential_patterns": "No matches for GitHub/OpenAI/Google/AWS credentials, private-key headers, Colab proxy tokens or local home-directory strings.",
+  "excluded": "Raw datasets, notebook/archive payloads, browser state, local settings, private mappings/seeds and annotation logs.",
+  "scope": "Pattern-based release review, not a guarantee of zero secrets or vulnerabilities."
+}

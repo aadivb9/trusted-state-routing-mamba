@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "Please cite the manuscript draft and this research-code repository when discussing the implementation."
+title: "Trusted-State Routing in Frozen Mamba: Benefits Within a Fact Schema and Limits of Transfer"
+type: software
+authors:
+  - family-names: Gupta
+    given-names: Aadi
+repository-code: "https://github.com/aadivb9/trusted-state-routing-mamba"
+version: "2026.10.28"
+date-released: "2026-10-28"

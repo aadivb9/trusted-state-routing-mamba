@@ -1,0 +1,48 @@
+{
+  "date": "2026-10-22",
+  "model": "state-spaces/mamba-130m-hf",
+  "revision": "1e76775f628fbf1350fbe4dbb3d971ba64af25a1",
+  "dtype": "float32",
+  "cpu_smoke": {
+    "prefix_tokens": [
+      8,
+      16,
+      32
+    ],
+    "suffix_tokens": 4,
+    "logit_tolerance": 0.001,
+    "reference": "Unpatched full-sequence logits captured before installing chunk wrapper; compare chunk and native single-token continuation."
+  },
+  "gpu_timing_plan": {
+    "status": "not_run",
+    "warmups": 3,
+    "timed_repetitions": 20,
+    "batch_size": 1,
+    "prefix_tokens": [
+      128,
+      512,
+      2048
+    ],
+    "new_tokens": 8,
+    "modes": [
+      "original",
+      "forced_accept",
+      "forced_reject",
+      "identical_decision_filtering"
+    ],
+    "synchronize_cuda": true,
+    "paired_order_seed": 20261022,
+    "report": [
+      "median",
+      "p95",
+      "paired_uncertainty",
+      "peak_memory"
+    ],
+    "scope": "Only measured workloads; no universal speed claim"
+  },
+  "files": {
+    "experiments/18_runtime_validation/run.py": "cd3822a8344e22294e9dc8ef050fb7a6c54089325a9210ae2b56d9bfcdf3ecec",
+    "src/runtime/pinned_models.py": "06ced443a5563a88beaf6ab073529e0448e85711eaf7c62ab8b103149fa9d24b",
+    "archive/sealed_workspace/dual_state_mamba.py": "cb03e5dc6483c9c9fd579c15cdebb44da079ae19a62fdbc051743083cce900d2"
+  }
+}

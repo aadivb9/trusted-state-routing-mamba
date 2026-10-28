@@ -1,0 +1,19 @@
+# Local/private research and authentication surfaces
+.codex/
+.playwright-mcp/
+.external/
+dist/
+.env
+.env.*
+!.env.example
+**/private/
+**/mapping.json
+**/reviewer_packet*
+**/model_review_requests.jsonl
+**/model_review.partial.json
+**/__pycache__/
+*.py[cod]
+.DS_Store
+*.zip
+*.ipynb
+*.log
