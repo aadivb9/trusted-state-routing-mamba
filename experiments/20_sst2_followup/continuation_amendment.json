@@ -1,0 +1,36 @@
+{
+  "kind": "Execution-only continuation after Colab VM replacement",
+  "original_protocol_sha256": "491236d991356f6946d3d82b29a6a5e0f30d92726230ba7eaddebcc046909fe5",
+  "recovered_unique_rows": 534,
+  "missing_planned_rows": 716,
+  "original_terminal_weight_hash": "unavailable after runtime loss",
+  "overlap_ids": [
+    "clean/sst2/validation/318",
+    "clean/sst2/validation/309",
+    "clean/sst2/validation/258",
+    "clean/sst2/validation/100",
+    "attack/combine/016",
+    "attack/combine/023",
+    "attack/fake_completion/017",
+    "attack/escape/002",
+    "attack/fake_completion/016",
+    "attack/ignore/030",
+    "injected_baseline/sms_spam/train/4896",
+    "injected_baseline/sms_spam/train/719"
+  ],
+  "overlap_generations": 24,
+  "overlap_selection": "4 clean source cases(all4arms),6 attacked cases(undefended),2 injected controls; fixed SHA-order by ID, no response selection",
+  "generation_functions_ast_equal": [
+    "tensor",
+    "native",
+    "dual",
+    "score",
+    "evaluate"
+  ],
+  "criteria": "Pinned versions and matching original weight fingerprint, cache checks and exact replay of all24 rows must pass before generating missing cases. No input/prompt/model/head/threshold/gate changes. Replays are not independent samples.",
+  "files": {
+    "experiments/20_sst2_followup/run_continuation.py": "68fd93296f651e27d8859691b3e3acec133570ef05329bcc35e5811d1c2ea447",
+    "experiments/20_sst2_followup/progress_snapshots/generations_534.json": "534f9cc70ec50737a3f692e131a417dfb65c73afb68b6835fcc2a92eae69f679"
+  },
+  "pre_execution_review": "Initial notebook launcher failed at Python parse time, before starting any inference. Review corrected the continuation-only gate to ignore already recovered defended rows and assert exact agreement with the original undefended screen. The initial unexecuted runner/amendment are preserved in pre_execution_review/. No generation function changed."
+}

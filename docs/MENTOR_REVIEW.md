@@ -12,3 +12,5 @@ Start with the [paper](../paper/manuscript.pdf) and [result summary](RESULTS.md)
 The earlier 100% published-trigger result uses an easy two-choice adaptation. Empty-context and evidence-removal controls prevent interpreting it as successful defense. No full official RoBench reproduction or superiority over a published defense is claimed.
 
 `archive/sealed_workspace/` is retained as a source import layout in this export. It contains selected first-party source, not the complete sealed archive. Nine exported controller copies replace the embedded upstream extractor with its pinned lazy download. The adaptation is recorded explicitly rather than changing any historical result or claiming a fresh replication.
+
+The next bounded round is in [the October 29 follow-up guide](FOLLOWUP.md). Review that before using the historical competence failure as the current one-task result.

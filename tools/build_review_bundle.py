@@ -63,10 +63,11 @@ def main():
             code.append('\n'+'='*78+f'\n{name}\n{spec["active_versions"][name]["purpose"]}\n'+'='*78+'\n')
             code.append((ROOT/name).read_text())
     for item in spec['experiments']:
-        protocol = ROOT / 'experiments' / item['directory'] / 'protocol.json'
-        if protocol.exists():
-            code.append('\n' + '=' * 78 + f'\n{protocol.relative_to(ROOT)}\n' + '=' * 78 + '\n')
-            code.append(protocol.read_text())
+        for filename in ('protocol.json','final_protocol.json','continuation_amendment.json'):
+            protocol = ROOT / 'experiments' / item['directory'] / filename
+            if protocol.exists():
+                code.append('\n' + '=' * 78 + f'\n{protocol.relative_to(ROOT)}\n' + '=' * 78 + '\n')
+                code.append(protocol.read_text())
     text_path = OUT / 'mentor_code.txt'
     text_path.write_text('\n'.join(code))
     archive = OUT / 'mentor_review.zip'
@@ -94,12 +95,17 @@ def main():
         check = json.loads(run(Path(tmp), ['tools/verify.py']).stdout)
         tests = run(Path(tmp), ['tools/run.py', 'tests'])
         new_tests=run(Path(tmp),['tools/run.py','remediation-tests'])
+        followup_tests=run(Path(tmp),['tools/run.py','followup-evidence-tests'])
+        serialization_tests=run(Path(tmp),['tools/run.py','followup-serialization-tests'])
+        forge_tests=run(Path(tmp),['tools/run.py','forge-tests'])
+        (OUT/'isolated_forge_tests.log').write_text(forge_tests.stdout+forge_tests.stderr)
+        (OUT/'isolated_followup_evidence_tests.log').write_text(followup_tests.stdout+followup_tests.stderr+serialization_tests.stdout+serialization_tests.stderr)
         (OUT / 'isolated_cpu_tests.log').write_text(tests.stdout + tests.stderr)
         (OUT / 'isolated_remediation_tests.log').write_text(new_tests.stdout+new_tests.stderr)
     result = {'status': 'passed', 'archive': str(archive.relative_to(ROOT)),
               'files_verified': len(manifest), 'archive_bytes': archive.stat().st_size,
               'archive_sha256': sha(archive.read_bytes()), 'review_text_sha256': sha(text_path.read_bytes()),
-              'current_source_parity':'passed','isolated_project_gate': check['status'], 'isolated_cpu_tests': 'passed','isolated_remediation_tests':'passed',
+              'current_source_parity':'passed','isolated_project_gate': check['status'], 'isolated_cpu_tests': 'passed','isolated_remediation_tests':'passed','isolated_followup_evidence_tests':'passed','isolated_forge_tests':'passed',
               'scope': 'Local review bundle, materialized views, byte parity, and isolated saved-output/CPU checks; no fresh GPU inference.'}
     (OUT / 'verification.json').write_text(json.dumps(result, indent=2) + '\n')
     print(json.dumps(result, indent=2))

@@ -24,6 +24,9 @@ ACTIVE_COMMANDS={
     'audit-remediation':['experiments/15_router_remediation/analyze.py'],
     'embedding-replay':['experiments/15_router_remediation/reconstruct_embeddings.py'],
     'external-preflight':['experiments/17_external_validation/run.py'],
+    'audit-followup':['tools/followup_summary.py'],
+    'followup-evidence-tests':['-m','unittest','discover','-s','tests','-p','test_followup_evidence.py','-v'],
+    'followup-serialization-tests':['-m','unittest','discover','-s','tests','-p','test_followup_serialization.py','-v'],
 }
 
 

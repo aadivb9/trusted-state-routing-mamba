@@ -17,3 +17,17 @@ dist/
 *.zip
 *.ipynb
 *.log
+
+# New benchmark source text and raw responses stay in the local research package.
+/experiments/19_embedding_followup/prepared.json
+/experiments/19_embedding_followup/derived_official_test.jsonl
+/experiments/19_embedding_followup/raw/*
+!/experiments/19_embedding_followup/raw/provenance.json
+/experiments/20_sst2_followup/prepared.json
+/experiments/20_sst2_followup/masks.json
+/experiments/20_sst2_followup/screen_results.json
+/experiments/20_sst2_followup/final_results.json
+/experiments/20_sst2_followup/continuation_results.json
+/experiments/20_sst2_followup/continuation_overlap.json
+/experiments/20_sst2_followup/progress_snapshots/
+/experiments/20_sst2_followup/continuation_progress/

@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-29",
+  "scope": "Bounded 3-encoder by 2-granularity detector follow-up. Whole summarization domain is held out. Earlier domains are development data. No held-out score chooses a head.",
+  "encoders": {
+    "minilm": {
+      "id": "sentence-transformers/all-MiniLM-L6-v2",
+      "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+      "pooling": "mean"
+    },
+    "bge": {
+      "id": "BAAI/bge-base-en-v1.5",
+      "revision": "a5beb1e3e68b9ab74eb54cfd186867f64f240e1a",
+      "pooling": "cls"
+    },
+    "e5": {
+      "id": "intfloat/e5-base-v2",
+      "revision": "f52bf8ec8c7124536f0efb74aca902b2995e5bcd",
+      "pooling": "mean",
+      "prefix": "query: "
+    }
+  },
+  "features": "Same generic observed-text segmentation, 64-word cap, all text covered by <=256-token windows with stride192. Eight pooled/relation vectors; encoder-prescribed pooling/prefix. Mean/max segments replace old fixed windows, so old scores are not controlled before/after comparisons.",
+  "training": "200 source/near-duplicate groups from BIPIA TableQA; duplicate identical group/question/span/label rows collapsed. Source/class balanced weights, train-only weighted standardization, C=1 balanced logistic regression max2000. Span supervision uses known construction offsets only in training, never inference.",
+  "calibration": "Known email/table/code corpora. Document risk is max segment score. Primary measured operating point maximizes worst-domain source-balanced recall under per-domain point FPR<=5%; tie mean recall, lower maximum FPR, higher threshold. Confidence selector remains unchanged: minimum100 benign groups/domain, familywise one-sided bounds<=5%, recall>=50%. Email has only78 independent groups, so confidence qualification must report insufficient support; exploratory point metrics must not be called certified.",
+  "final": "100 reconstructed official BIPIA XSum test sources, MD5-verified; 6 published attacks/source plus clean. No final source used in fitting or calibration. No unseen attack-family or foundation-pretraining independence claim.",
+  "head_selection": "Worst calibration-domain recall, then average recall, then lower max FPR, then predefined encoder/granularity order. All heads frozen before final feature computation. All six final cells reported.",
+  "runtime": "MPS FP32 eager attention, fixed seed20261029, batch16, CPU threads4; no mixed precision or backbone updates.",
+  "files": {
+    "src/routing/embedding_followup.py": "f11491b9d2f9c6862552100b2e3798461390058752850e8e2ee73dd9abb845ae",
+    "src/validation/calibration.py": "0f45236cd7d58c643e84d67a89da52f005f244add4062ed3f23b3336e0997596",
+    "experiments/19_embedding_followup/prepare.py": "9d143483e787ceae8f314081c09df86f9ad27a33ac55314bfe4e17ffca21ab42",
+    "experiments/19_embedding_followup/prepared.json": "524d3f9ee9f2bc5dc0b38ae85b069d53945c632a348450747030d488e77ffa40",
+    "experiments/19_embedding_followup/run.py": "3c9858ad73688df8ee4060d7ced44b0267fd20b3cd05879c85e69bafac739304",
+    "experiments/19_embedding_followup/raw/provenance.json": "341e67f397397f51354db4f9d0e98a36b201f291a9536020c3977a28bbe399e9"
+  }
+}

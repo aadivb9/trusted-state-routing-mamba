@@ -116,7 +116,31 @@ def remediation_gate(root):
     return {'checks_passed':len(result['checks'])}
 
 
-CHECKS = (preserved_bytes, review_views, source_coverage, documentation_links, evidence_gate,remediation_gate)
+def followup_gate(root):
+    sys.path.insert(0,str(root/'tools'))
+    from followup_summary import make_summary
+    current=make_summary(root)
+    record=json.loads((root/'remediation/followup_20261029/summary.json').read_text())
+    require(current==record,'Follow-up summary differs from recomputed scores/responses')
+    from followup_report import paper_block,report
+    block=paper_block(current)
+    require((root/'paper/followup_results.md').read_text()==block,'Follow-up result block stale')
+    require((root/'paper/manuscript.md').read_text().count(block.rstrip())==1,'Follow-up paper claims stale')
+    require((root/'remediation/followup_20261029/REPORT.md').read_text()==report(current),'Follow-up report stale')
+    review=json.loads((root/'remediation/followup_20261029/review.json').read_text())
+    required={'tools/followup_summary.py','tools/followup_report.py','paper/manuscript.md',
+              'paper/followup_results.md','remediation/followup_20261029/REPORT.md',
+              'remediation/followup_20261029/summary.json',
+              'experiments/19_embedding_followup/results.json','experiments/19_embedding_followup/frozen_heads.json',
+              'experiments/19_embedding_followup/calibration_replay.json',
+              'experiments/20_sst2_followup/screen_results.json','experiments/20_sst2_followup/final_results.json',
+              'experiments/20_sst2_followup/masks.json','remediation/followup_20261029/extra_normalization_probe.json'}
+    require(required<=set(review['files']),'Follow-up semantic review coverage missing')
+    for name,h in review['files'].items():require(sha(root/name)==h,'Follow-up review input changed: '+name)
+    return {'embedding_cells':6,'external_status':current['external']['status'],'saved_output_reanalysis':'passed'}
+
+
+CHECKS = (preserved_bytes, review_views, source_coverage, documentation_links, evidence_gate,remediation_gate,followup_gate)
 
 
 def main():
@@ -131,7 +155,7 @@ def main():
             results.append({'check': check.__name__, 'passed': False, 'reason': str(exc)})
     result = {'status': 'passed' if all(c['passed'] for c in results) else 'failed',
               'checked_at_utc': datetime.now(timezone.utc).isoformat(), 'checks': results,
-              'scope': 'Byte preservation, report/source consistency and raw-output reanalysis. The new T4 competence screen failed and attack efficacy is unmeasured; different-model annotation review is not human adjudication. The full repeated T4 timing run failed from out-of-memory; shorter blocks are descriptive. No fresh model inference is performed by this gate.'}
+              'scope': 'Byte preservation, report/source consistency and raw-output reanalysis. The historical three-task T4 competence screen failed; the separate October 29 study is checked by followup_gate; different-model annotation review is not human adjudication. The full repeated T4 timing run failed from out-of-memory; shorter blocks are descriptive. No fresh model inference is performed by this gate.'}
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, indent=2) + '\n')
     print(json.dumps(result, indent=2))

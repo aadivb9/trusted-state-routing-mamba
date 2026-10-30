@@ -1,0 +1,9 @@
+{
+  "kind": "Post-run same-encoder frozen-head mask reconstruction; not independent replication",
+  "status": "passed",
+  "records": 350,
+  "max_probability_difference": 0.0,
+  "decision_mismatches": [],
+  "script_sha256": "bda2eaf09007728eb93b33b9327522353739cdd7c053a7a931c9bd41a2fa0def",
+  "masks_sha256": "1f3760a5b3d20d3871c7c9cab803597eb907ce01da2bc556013c12f1629f4cc9"
+}

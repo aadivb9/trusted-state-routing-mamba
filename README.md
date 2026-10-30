@@ -32,4 +32,8 @@ This repository contains first-party Python implementations and experiment runne
 
 The embedded third-party HiSPA extractor was replaced only in this public copy with a lazy HTTPS download at a pinned commit and verified SHA-256. Importing the controller does not download it. Historical runners retain their original protocol hashes and fail closed if the required exact sealed inputs are unavailable; this export is not a byte-identical, fully self-contained reproduction of all historical experiments. The original local archive and verified mentor package were left unchanged.
 
-The paper remains a research draft. External attack efficacy, human-adjudicated annotation accuracy, native instruction-checkpoint conversion equivalence and full official RoBench/BIPIA task-utility evaluations remain unestablished.
+The [October 29 follow-up](docs/FOLLOWUP.md) adds two larger sequence embedding checkpoints and a separate SST-2-only study. BGE improves ranking modestly but removes payload text in only 27/600 poisoned BIPIA-derived documents; E5 rejects nothing at its selected operating points. The selected four-shot Mamba format passes fresh confirmation at 87/100. Reserved attack execution ended `complete`; see the linked record for the full four-arm comparison.
+
+The completed SST-2 test shows no learned target-accuracy gain: undefended inference, learned filtering and two-bank routing each score 118/250 attacked; the unfitted filter scores 115/250. Every arm scores 44/50 clean, and all 300 matched learned-filter/two-bank outputs agree.
+
+The paper remains a research draft. A general poisoning defense, a predictive benefit unique to two banks, human-adjudicated annotation accuracy, native instruction-checkpoint conversion equivalence and full official RoBench/BIPIA task-utility evaluations remain unestablished.

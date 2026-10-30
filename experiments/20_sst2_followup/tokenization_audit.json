@@ -1,0 +1,9 @@
+{
+  "records_checked": 350,
+  "maximum_input_tokens": 280,
+  "input_limit": 1024,
+  "full_token_mismatches": 0,
+  "boundary_failures": 0,
+  "mask_sha256": "1f3760a5b3d20d3871c7c9cab803597eb907ce01da2bc556013c12f1629f4cc9",
+  "scope": "Offline tokenizer/control serialization check; no final model predictions"
+}

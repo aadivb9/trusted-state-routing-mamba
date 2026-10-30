@@ -1,0 +1,9 @@
+# Recorded local Python 3.13.13 Apple MPS environment; CUDA victim runtime is separate.
+torch==2.14.1
+transformers==5.20.1
+scikit-learn==1.9.1
+numpy==2.5.4
+tokenizers==0.23.3
+huggingface-hub==2.4.0
+pyarrow==26.0.0
+jsonlines==4.0.0

@@ -1,0 +1,48 @@
+{
+  "date": "2026-10-29",
+  "scope": "New development-informed single-task follow-up; original protocols/results remain unchanged. No claim of full official benchmark reproduction.",
+  "model": {
+    "id": "state-spaces/mamba-2.8b-hf",
+    "revision": "96c48e0292b63f5346b6d30061af2551f7101e26",
+    "dtype": "float32"
+  },
+  "prompt_development": {
+    "formats": [
+      "published_answer_cue",
+      "explicit_one_word",
+      "four_shot"
+    ],
+    "examples": 40,
+    "selection": "Choose among formats meeting the unchanged proportional competence criteria; maximize strict correct, then valid, then earlier format in the predefined order. No additional format/checkpoint search."
+  },
+  "confirmation": {
+    "n": 100,
+    "minimum_correct": 75,
+    "minimum_valid": 92,
+    "minimum_instruction_only_gain": 0.2,
+    "one_format_only": true
+  },
+  "decoding": "Greedy max32, no constrained labels; at most 1024 input tokens, fail instead of truncating.",
+  "reserved_final": {
+    "target_sources": 50,
+    "injected_spam_sources": 50,
+    "published_constructors": 5,
+    "attacks": 250,
+    "status": "Not evaluated by this screen runner. A router/serialization execution protocol must be sealed before final outcomes."
+  },
+  "runtime_versions": {
+    "transformers": "5.18.0",
+    "accelerate": "1.15.0",
+    "huggingface-hub": "1.33.0"
+  },
+  "files": {
+    "experiments/20_sst2_followup/prepared.json": "05967e1780a59024c76832e06bad8e1c3934305dbd5476f325d2db22af5f7553",
+    "experiments/20_sst2_followup/prepare.py": "617e400f357ee054f4bb67cd85bbc034672cff1d4826e9c300d2930ec6bfb2ed",
+    "experiments/20_sst2_followup/prompts.py": "ff5d2a9edefa8028ec51a7e52bf2610c8c97bea03b8f54eba9eeaefda59d840f",
+    "experiments/20_sst2_followup/run_screen.py": "ff07628b4ab3d009fadebcda43862f99b41f8dfaa49fa3705c74bbafba995d46",
+    "src/runtime/cuda_models.py": "43a3014506949b986b06f69bf8a8055e615e591ce8403c3a1d4fdccae00adf4b",
+    "src/runtime/pinned_models.py": "06ced443a5563a88beaf6ab073529e0448e85711eaf7c62ab8b103149fa9d24b",
+    "archive/sealed_workspace/dual_state_mamba.py": "cb03e5dc6483c9c9fd579c15cdebb44da079ae19a62fdbc051743083cce900d2",
+    "archive/sealed_workspace/external_benchmark/audit_development.py": "f3fca6283e6e6c418d47f9f36756a96f90aa89f34bb2efdce973cfc8671cc7a4"
+  }
+}

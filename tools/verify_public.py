@@ -17,6 +17,16 @@ def require(value, reason):
 
 def main():
     manifest = json.loads((ROOT / 'provenance/public_manifest.json').read_text())['files']
+    actual={str(p.relative_to(ROOT)) for p in ROOT.rglob('*') if p.is_file()
+            and '.git' not in p.relative_to(ROOT).parts and '__pycache__' not in p.parts
+            and p.name!='.DS_Store' and p.suffix!='.pyc'
+            and str(p.relative_to(ROOT))!='provenance/public_manifest.json'}
+    require(actual==set(manifest),'Public manifest inventory coverage differs')
+    for name in manifest:
+        require(not (name.startswith('experiments/19_embedding_followup/raw/') and name!='experiments/19_embedding_followup/raw/provenance.json'),'Raw new BIPIA corpus in public export')
+        require(name not in ['experiments/19_embedding_followup/prepared.json','experiments/19_embedding_followup/derived_official_test.jsonl'],'Raw prepared corpus in public export')
+        require(not name.startswith(('experiments/20_sst2_followup/progress_snapshots/','experiments/20_sst2_followup/continuation_progress/')),'Raw response snapshot in public export')
+        require(name not in ['experiments/20_sst2_followup/'+n for n in ['prepared.json','masks.json','screen_results.json','final_results.json','continuation_results.json','continuation_overlap.json']],'Raw new source/response material in public export')
     for name, expected in manifest.items():
         path = ROOT / name
         require(path.is_file() and not path.is_symlink(), 'Missing/nonmaterialized export: ' + name)
@@ -73,9 +83,13 @@ def main():
         for left, right in [('original', 'forced_accept'), ('forced_reject', 'identical_decision_filtering')]:
             require(all(groups[left][rep]['generated_tokens'] == groups[right][rep]['generated_tokens']
                         for rep in range(20)), 'Observed short-block output mismatch')
+    sys.path.insert(0,str(ROOT/'tools'))
+    from verify_followup_public import verify as verify_followup
+    followup = verify_followup(ROOT)
     print(json.dumps({'status': 'passed', 'exported_files_checked': len(manifest),
                       'external_saved_response_scores': counts,
                       'timing': 'Full protocol failed at 166/240; complete short blocks have 80 matching output pairs',
+                      'followup':followup,
                       'scope': 'Public bytes, syntax, links and included saved-output checks only. No withheld-source verification, private annotation audit or fresh inference.'}, indent=2))
 
 

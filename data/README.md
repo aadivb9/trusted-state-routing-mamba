@@ -10,3 +10,5 @@ Raw corpora and abstract/reviewer packets are not redistributed in this public s
 The preparation and evaluation code is included for review. Running the full historical pipeline needs the exact source inputs and their applicable terms, plus the sealed artifacts that are absent here. Full internal audits remain available in the author's local mentor package; the public check has a deliberately narrower, disclosed scope.
 
 Private reviewer mappings, shuffle seeds and raw annotation request/response packets remain private. Public summary numbers do not substitute for human annotation validation.
+
+October 29 adds BIPIA summarization/XSum-derived contexts and new SST-2/SMS selections. Raw corpora, model responses, masks and reversible generated IDs are omitted; public derived observations support count checks only. Dataset access does not imply unrestricted redistribution.

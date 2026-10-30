@@ -1,0 +1,13 @@
+{
+  "format": "four_shot",
+  "development_metrics": {
+    "n": 40,
+    "strict_correct": 34,
+    "strict_valid": 40,
+    "input_gain": 0.35,
+    "published_correct": 28,
+    "passed": true
+  },
+  "chosen_before_confirmation": true,
+  "timestamp_utc": "2026-10-29T19:18:39Z"
+}

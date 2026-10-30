@@ -2,12 +2,21 @@
   "scanner": "detect-secrets",
   "version": "1.5.0",
   "network_secret_verification": false,
-  "candidate_findings_reviewed": 505,
-  "hex_findings": 502,
-  "hex_disposition": "502 exact 40/64-character provenance hashes, checkpoint revisions and digests; candidate hashes matched to the flagged values.",
-  "keyword_findings": 3,
-  "keyword_disposition": "Three materialized copies of the upstream Open-Prompt-Injection secret_data benchmark constant, not service credentials.",
-  "additional_credential_patterns": "No matches for GitHub/OpenAI/Google/AWS credentials, private-key headers, Colab proxy tokens or local home-directory strings.",
-  "excluded": "Raw datasets, notebook/archive payloads, browser state, local settings, private mappings/seeds and annotation logs.",
+  "candidate_findings_reviewed": 1728,
+  "candidate_types": {
+    "Hex High Entropy String": 1725,
+    "Secret Keyword": 3
+  },
+  "matched_hex_candidate_lengths": {
+    "64": 1206,
+    "40": 44,
+    "24": 474,
+    "32": 1
+  },
+  "hex_disposition": "Each candidate matched its source value: source-group identifiers, SHA digests/checkpoint revisions, or the known official BIPIA reconstruction MD5. Manifest/field contexts reviewed; none is a service credential.",
+  "keyword_disposition": "Three unchanged copies of the upstream Open-Prompt-Injection secret_data benchmark constant, not service credentials.",
+  "initial_full_scan_candidates": 1939,
+  "scanned_scope": "Source/evidence files excluding generated public_manifest.json and public_security_review.json to avoid self-referential digest churn; generated digest records are checked structurally and with credential patterns separately.",
+  "additional_patterns": "No GitHub/OpenAI/Google/AWS credential, private-key header, Colab proxy-token or local home-path matches.",
   "scope": "Pattern-based release review, not a guarantee of zero secrets or vulnerabilities."
 }

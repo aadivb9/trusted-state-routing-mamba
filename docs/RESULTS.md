@@ -11,3 +11,5 @@
 The public saved-output checker recomputes strict and published-parser labels from the included external responses and checks the recorded timing failure. It cannot validate withheld source texts, reproduce the full private annotation audit, or establish fresh GPU inference. The full local package previously passed its consistency and isolated-extraction checks; that is a separate scope.
 
 See the [paper](../paper/manuscript.md) for the full methods, conditional uncertainty, reference controls and limitations. The project supports a bounded implementation/negative-results study, not a validated general memory-poisoning defense.
+
+See [the October 29 follow-up](FOLLOWUP.md) for larger sequence encoders and the separate SST-2 competence/attack comparison. Earlier protocols remain historical outcomes.

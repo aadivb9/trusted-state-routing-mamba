@@ -1,0 +1,7 @@
+{
+  "head": "bge/span",
+  "selection_basis": "Calibration only; no final-domain scores",
+  "confidence_status": "insufficient_calibration_support",
+  "heads_sha256": "cae2d3e8db4884e61ceb03d90da6f18ff77c8d1c65a31b875bbc3ca5ffb5c29a",
+  "timestamp_utc": "2026-10-29T19:08:38Z"
+}

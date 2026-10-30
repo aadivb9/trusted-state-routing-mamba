@@ -1,0 +1,16 @@
+{
+  "status": "additional_overlap_found",
+  "kind": "Post-preparation stricter normalization probe, not the frozen source-selection rule",
+  "difference": "The frozen SST-2 selection lowercases and collapses whitespace, retaining punctuation. A shared audit helper initially used the BIPIA word-token normalization instead. That helper mismatch is corrected for the protocol check; this stricter finding remains recorded.",
+  "overlaps": [
+    {
+      "new_role": "injections",
+      "new_source_id": "sms_spam/train/1273",
+      "historical_source_id": "sms_spam/train/1925",
+      "new_text": "Ok...\n",
+      "historical_text": "Ok",
+      "word_normalized": "ok"
+    }
+  ],
+  "scope": "One short injected-source punctuation variant; not a target, demonstration, prompt-development or confirmation overlap. It passes the original exact/Jaccard rule because punctuation differs and both texts have fewer than five words. No prepared inputs or frozen criteria changed. This is a limit of the original deduplication rule."
+}

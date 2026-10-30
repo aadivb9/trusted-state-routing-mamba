@@ -21,7 +21,7 @@ def main():
     for cls in [router.RouterRegressions, router.CalibrationRegressions]:
         suite.addTests(loader.loadTestsFromTestCase(cls))
     for i, file in enumerate(['test_remediation_serialization.py', 'test_remediation_serialization_v2.py',
-                              'test_remediation_timing.py', 'test_public_extractor.py']):
+                              'test_remediation_timing.py', 'test_public_extractor.py','test_followup_serialization.py']):
         suite.addTests(loader.loadTestsFromModule(load('public_checks_' + str(i), 'tests/' + file)))
     return 0 if unittest.TextTestRunner(verbosity=2).run(suite).wasSuccessful() else 1
 

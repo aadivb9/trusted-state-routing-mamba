@@ -23,6 +23,14 @@ def main():
                'remediation/finish_closeout.py','remediation/completion_20261027/model_review_protocol.json',
                'remediation/completion_20261027/serialization_auto_tokenizer_audit.json']
     inputs += ['archive/sealed_workspace/'+n for n in ['adaptive_router_experiment/results.json','text_router_benchmark/results.json','generalization_experiment/results.json','mamba_28b_feasibility/fp32_run_02/results.json','research_closeout/run_03/results.json','research_closeout/run_03/verification.json']]
+    inputs += ['tools/followup_summary.py','tools/followup_report.py','paper/followup_results.md',
+               'experiments/19_embedding_followup/protocol.json','experiments/19_embedding_followup/results.json',
+               'experiments/19_embedding_followup/selection.json','experiments/19_embedding_followup/calibration_replay.json',
+               'experiments/20_sst2_followup/protocol.json','experiments/20_sst2_followup/final_protocol.json',
+               'experiments/20_sst2_followup/screen_results.json','experiments/20_sst2_followup/final_results.json',
+               'experiments/20_sst2_followup/continuation_amendment.json','experiments/20_sst2_followup/continuation_overlap.json',
+               'experiments/20_sst2_followup/mask_replay.json',
+               'remediation/followup_20261029/summary.json','remediation/followup_20261029/extra_normalization_probe.json']
     outputs=['paper/manuscript.pdf','paper/manuscript.html','paper/figure_data.csv','paper/final_baseline_table.md']
     outputs += [str(p.relative_to(ROOT)) for p in sorted((OUT/'figures').iterdir()) if p.suffix in ('.pdf','.png')]
     hashes=lambda names:{n:hashlib.sha256((ROOT/n).read_bytes()).hexdigest() for n in names}
