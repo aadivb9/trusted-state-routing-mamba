@@ -2,13 +2,20 @@
 
 Research manuscript draft — October 2026. Author and affiliation details to be supplied before submission.
 
+TODO: Switch to latex if time. Use overleaf.com
+
 ## Abstract
 
+
 Preserving a trusted recurrent state permits discarding untrusted updates, but its security value depends on routing decisions. We study a two-bank cache controller in frozen Mamba with text routers and identical-decision filtering controls. Within a restricted synthetic fact schema, attacked two-choice accuracy rises from 28/100 to 80/100, while strict free-generation correctness rises from 20/100 to 28/100. An unfitted rule matches all 200 learned-cascade decisions, and filtering reproduces the controller outputs; neither learning nor two-bank storage has an isolated predictive contribution in that setting. A new BIPIA-derived summarization holdout compares three sequence embedding checkpoints. BGE/span reaches AUROC 0.6373 but removes payload text in only 27/600 poisoned documents and flags 5/100 clean documents. All operating points remain exploratory. A separate SST-2 prompt study selects four-shot prompting on development data and confirms 87/100 strict-correct answers on fresh examples. Reserved evaluation scores 44/50 clean in every arm. Under attack, undefended inference, learned filtering and two-bank routing each score 118/250, versus 115/250 for an unfitted filter. All 300 matched learned-filter/two-bank output pairs agree. Cache checks support implementation mechanics, while a separate repeated T4 timing protocol fails at 2,048 tokens. These results support a bounded implementation and failure analysis, without establishing useful transferable poisoning protection or a predictive advantage unique to two states.
+
+TODO: Expand on intro and related works, more info on the methods, shrink results, and more conclusion
 
 ## 1. Introduction
 
 Selective state-space language models process sequences through recurrent state updates. Mamba combines this mechanism with input-dependent selection [1]. An adversarial input can therefore affect information used later in a sequence. Hidden State Poisoning Attacks (HiSPA) motivate examining whether preserving earlier states can limit such effects [2]. State preservation, however, is only useful as a defense when a controller can determine which updates to keep.
+
+TODO: Add more to introduction to back up the importance of mamba models, what are the important pieces to go over
 
 We investigate an inference controller that shares one frozen backbone between two cache banks. The controller processes an incoming span in a candidate bank and either commits that bank or retains the earlier state. We ask three questions: Does routing preserve useful task information under malicious additions? Does a benefit transfer beyond the router's supported schema? Does maintaining two banks add predictive value beyond filtering the same rejected text?
 
@@ -20,7 +27,7 @@ Our contribution is an empirical examination of an implemented cache controller 
 
 ## 2. Background and related work
 
-Mamba uses selective state spaces for sequence modeling [1]. Our experiments use published Mamba checkpoints with unchanged backbone weights. The smaller model has 129,135,360 parameters; the larger has 2,768,345,600. The latter is Mamba-2.8B by parameter scale, not a claim to evaluate the separate Mamba-2 architecture.
+Mamba uses selective state spaces for sequence modeling [1]. Our experiments use published Mamba checkpoints with unchanged backbone weights. The smaller model has 129,135,360 parameters; the larger has 2,768,345,600. The latter is Mamba-2.8B by parameter scale, not a claim to evaluate the separate Mamba-2 architecture. (TODO move this last sentence to methods section)
 
 HiSPA studies adversarial strings that damage retrieval through state corruption and introduces RoBench-25 [2]. We use its published triggers and supplied abstract material in bounded adaptations. These adaptations are not complete reproductions of the official RoBench protocol. Ordinary semantic false-correction notes used elsewhere in this study are synthetic prompt injections; their harmful answer effects alone do not establish the internal mechanism studied by HiSPA.
 
@@ -79,6 +86,7 @@ The October 29 extension freezes three embedding-trained sequence checkpoints: M
 For the one-task victim experiment, trusted content consists of the task instruction and four disjoint training demonstrations. Current-example text is entirely untrusted. Filtering and two-bank execution share frozen span masks and the same tokenized prompt. The state controller is evaluated as a mechanism for speculative recurrent-cache updates within an inference stream. These experiments do not model every persistent agent-memory store, cross-session write, retrieval policy or adaptive multi-turn adversary. Removing a text span before inference and refusing its recurrent update may be predictively equivalent; that is an explicit control, not evidence that a second state bank caused any observed accuracy gain.
 
 ## 4. Experimental design
+TODO: Combine into one overall methods section
 
 ### 4.1. Evaluation stages
 
@@ -128,6 +136,8 @@ Frozen MiniLM inference was repeated in the recorded CPU software environment wi
 A separately frozen prospective external protocol selects new exact-normalized-text-disjoint records from the pinned published sources and uses unchanged published attack constructors. It has a new 72-example competence screen, reserved clean baselines and 4,500 attack presentations. Its hash-order balanced selection and fixed trailing-newline prompt are adaptations, not the original first-N procedure or full official benchmark reproduction. The subsequent T4 execution completed the 72-example screen after a versioned token-boundary runtime repair; all three tasks failed the unchanged gate (Section 5.10). The protocol requires all tasks to pass the unchanged competence gate before any attack-conditioned generations, with no prompt sweep, checkpoint replacements or selection of favorable tasks. Same-task injection rows must be distinguished when interpreting attack objectives. These prepared inputs and runners are not efficacy results.
 
 ## 5. Results
+
+TODO: generally decide if each section is important, generalize subsections, and decide what to do.
 
 ### 5.1. Routing helps within its supported schema
 
@@ -333,6 +343,7 @@ BGE/span was selected using calibration alone before final-domain features were 
 
 The paired BGE/span versus MiniLM/span AUROC difference is 0.1118, with a source-cluster bootstrap 95% interval [0.0814, 0.1460]. This supports a ranking improvement in this fixed comparison; it does not establish useful low-FPR protection or a causal benefit from parameter count alone.
 
+TODO: Move things like below paragraph to discussion section
 All six heads fail the unchanged confidence-support requirement because email supplies only 78 independent benign groups rather than the required 100. The exploratory selector constrains calibration point FPR, not held-out confidence bounds. Additional source support alone would not establish a useful threshold: the recall and uncertainty-bound requirements would still need to pass. Five heads select a reject-nothing threshold: zero final FPR there does not demonstrate protection. Intervals condition on the fixed selected configuration, omit encoder/head selection and training uncertainty, and can degenerate for zero-count cells. Frozen-head calibration reconstruction reproduces original decision metrics, but was saved after inference and is not original raw-score logging. No BIPIA victim generations establish attack-success reduction.
 
 ### 5.13. A separate one-task competence and attack study
